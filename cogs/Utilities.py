@@ -21,14 +21,14 @@ class Utilities(commands.Cog):
     async def changelog(self, ctx):
         embed= discord.Embed(
             colour=(0x629632),
-            title="P.A.R.R.O.T. V.1.1.08/20 (6x734)"
+            title="P.A.R.R.O.T. V.1.2.20/20 (98c0f71)"
         )
 
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-        embed.add_field(name="What's New?", value="Added: \nUtility and Help commands. \nImproved formatting for embedded command outputs. \nBetter error handling! \nA cool new PfP!", inline=False)
-        embed.add_field(name="Changes:", value="Limited social interactions to one user at a time. \nMusic player limited to one guild at a time. \nImprovements to the overall embedding format to make outputs look more professional.", inline=False)
-        embed.add_field(name="Removed:", value="Lack of feedback upon command faliure. \nRemoved Herobrine", inline=False)
-        embed.add_field(name="What's Next?", value="Unban Commands. \nFurther options for playing audio in a VC. \nImages to compliment social commands. \nNew additions to social commands.", inline=False)
+        embed.add_field(name="What's New?", value="Added: Online hosting to allow the bot to run 24/7", inline=False)
+        embed.add_field(name="Changes:", value="Music Commands are Temporarily Disabled.\nSocial Command Interactions will be Permanantly limited to One.", inline=False)
+        embed.add_field(name="Removed:", value=">Exit Dev Command", inline=False)
+        embed.add_field(name="What's Next?", value="Fixing VC Commands to be Compatable with Web Hosting.\nMore Social Commands.\nPossible NSFW Features.", inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
         await ctx.send(embed=embed)

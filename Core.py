@@ -55,7 +55,7 @@ initial_extensions = ['cogs.Hugs',
 
 if __name__ =='__main__':
     for Extension in initial_extensions:
-        bot.load_extension(Extension)
+        client.load_extension(Extension)
 
 @client.command(aliases=['Ping'])
 async def ping(ctx):

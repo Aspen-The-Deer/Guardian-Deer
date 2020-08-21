@@ -3,6 +3,7 @@ import sys
 import random
 import time
 import json
+import requests
 from discord.ext import commands
 
 class Hugs(commands.Cog):

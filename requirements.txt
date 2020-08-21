@@ -1,2 +1,2 @@
 discord
-request
+git+git://github.com/kennethreitz/requests.git

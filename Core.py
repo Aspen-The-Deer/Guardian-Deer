@@ -48,9 +48,14 @@ async def unload(ctx, ext):
     print('Extension Un-Loaded')
 
 # This is what looks for and opens all of the command modules (cogs)
-for filename in os.listdir('C:/Users/jonah/Documents/Wulf Bot/cogs'):
-    if filename.endswith('.py'):
-        client.load_extension(f'cogs.{filename[:-3]}')
+initial_extensions = ['cogs.Hugs',
+                      'cogs.Punish',
+                      'cogs.Utilities',
+                      'cogs.Shredder']
+
+if __name__ =='__main__':
+    for Extension in initial_extensions:
+        bot.load_extension(Extension)
 
 @client.command(aliases=['Ping'])
 async def ping(ctx):

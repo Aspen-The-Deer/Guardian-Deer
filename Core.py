@@ -22,7 +22,7 @@ async def unload(ctx, ext):
 
 # This is what looks for and opens all of the command modules (cogs)
 initial_extensions = ['cogs.Hugs',
-                      'cogs.Music',
+                      'cogs.Music_Overhaul',
                       'cogs.Punish',
                       'cogs.Shredder',
                       'cogs.Utilities']

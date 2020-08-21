@@ -28,7 +28,7 @@ class Utilities(commands.Cog):
         embed.add_field(name="What's New?", value="Added: Online hosting to allow the bot to run 24/7", inline=False)
         embed.add_field(name="Changes:", value="Music Commands are Temporarily Disabled.\nSocial Command Interactions will be Permanantly limited to One.", inline=False)
         embed.add_field(name="Removed:", value=">Exit Dev Command", inline=False)
-        embed.add_field(name="What's Next?", value="Fixing VC Commands to be Compatable with Web Hosting.\nMore Social Commands.\nPossible NSFW Features.", inline=False)
+        embed.add_field(name="What's Next?", value="Fixing VC Commands to be Compatable with Web Hosting.\nMore Social Commands.", inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
         await ctx.send(embed=embed)
@@ -78,8 +78,8 @@ class Utilities(commands.Cog):
 
             embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed2.add_field(name=">Ban", value="The Guardian will ban the specified user for a specified reason.\n Usage: >ban [User Mention] [Ban reason]", inline=False)
-            embed2.add_field(name=">Kick", value="The Guardian will kick the specified user for a specified reason.\n Usage: >ban [User Mention] [Kick reason]", inline=False)
-            embed2.add_field(name=">Unban", value="NULL.", inline=False)
+            embed2.add_field(name=">Kick", value="The Guardian will kick the specified user for a specified reason.\n Usage: >kick [User Mention] [Kick reason]", inline=False)
+            embed2.add_field(name=">Unban", value="The Guardian will unban the desired user.\n Useage: >unban [User ID]", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)
@@ -107,6 +107,7 @@ class Utilities(commands.Cog):
             embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed2.add_field(name=">Hug", value="Allows you to hug another user.\n Usage: >hug [User Mention]", inline=False)
             embed2.add_field(name=">Cuddle", value="Allows you to cuddle another user.\n Usage: >cuddle [User Mention]", inline=False)
+            embed2.add_field(name=">Boop", value="Allows you to boop another user.\n Usage: >boop [User Mention]", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)

@@ -84,20 +84,6 @@ class Utilities(commands.Cog):
 
             await ctx.send(embed=embed2)
             return
-#        elif module == "Music" or module == "music":
-#            embed2= discord.Embed(
-#                colour=(0x629632),
-#                title="Music Commands:"
-#            )
-
-#            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-#            embed2.add_field(name=">Join", value="Connects the bot to your voice channel.", inline=False)
-#           embed2.add_field(name=">Leave", value="Disconnects the bot from it's current voice channel.", inline=False)
-#            embed2.add_field(name=">Play", value="Plays the audio from any video on YouTube. (Must be a Valid URL)\n Usage: >play [Youtube URL]", inline=False)
-#            embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
-
-            await ctx.send(embed=embed2)
-            return
         elif module == "Social" or module == "social":
             embed2= discord.Embed(
                 colour=(0x629632),
@@ -150,7 +136,6 @@ class Utilities(commands.Cog):
             embed.add_field(name=">Help", value="This command returns this embed.", inline=False)
             embed.add_field(name=">Help Utilities", value="This command returns help info for the Guardian's Utility commands.", inline=False)
             embed.add_field(name=">Help Moderation", value="This command returns help info for the Guardian's Moderation commands.", inline=False)
-            embed.add_field(name=">Help Music", value="This command returns help info for the Guardian's Music commands.", inline=False)
             embed.add_field(name=">Help Social", value="This command returns help info for the Guardian's Social commands.", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 

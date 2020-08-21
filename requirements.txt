@@ -2,3 +2,4 @@ discord
 git+git://github.com/kennethreitz/requests.git
 git+git://github.com/ytdl-org/youtube-dl.git
 git+git://github.com/dstufft/pynacl.git
+git+git://github.com/Rapptz/discord.py

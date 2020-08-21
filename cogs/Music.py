@@ -129,15 +129,16 @@ class Music(commands.Cog):
         if isinstance(error, commands.CheckAnyFailure):
             print("An unknown error occurred in Music.py")
         else:
-            embed4= discord.Embed(
-                colour=(0x629632),
-                title="An error has occured..."
-            )
+            print(error)
+ #           embed4= discord.Embed(
+ #               colour=(0x629632),
+ #               title="An error has occured..."
+ #           )
 
-            embed4.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed4.add_field(name="The bot is alredy connected elsewhere in this server!", value="Error: #006", inline=False)
-            embed4.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
-            await ctx.send(embed=embed4)   
+#            embed4.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+#            embed4.add_field(name="The bot is alredy connected elsewhere in this server!", value="Error: #006", inline=False)
+#            embed4.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+#            await ctx.send(embed=embed4)   
 
     @leave.error
     async def leave_error(self, ctx, error):

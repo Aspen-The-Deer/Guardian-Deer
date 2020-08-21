@@ -8,32 +8,32 @@ client = commands.Bot(command_prefix = '>')
 client.remove_command('help')
 
 
-@client.command(aliases=['Exit'], pass_context = True)
-async def exit(ctx):
-    if str(ctx.message.author.id) == '606855758612660327':
-        embed2= discord.Embed(
-            colour=(0x629632),
-            title="Shutting Down..."
-        )
+#@client.command(aliases=['Exit'], pass_context = True)
+#async def exit(ctx):
+#    if str(ctx.message.author.id) == '606855758612660327':
+#        embed2= discord.Embed(
+#            colour=(0x629632),
+#            title="Shutting Down..."
+#        )
 
-        embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-        embed2.add_field(name="The bot has been manually stopped via Discord", value="Thank you for using me!", inline=False)
-        embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
-        await ctx.send(embed=embed2)   
-        activity = discord.Game(name="with the off button...", type=2)
-        await client.change_presence(status=discord.Status.online, activity=activity)
+#        embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+#        embed2.add_field(name="The bot has been manually stopped via Discord", value="Thank you for using me!", inline=False)
+#        embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+#        await ctx.send(embed=embed2)   
+#        activity = discord.Game(name="with the off button...", type=2)
+#        await client.change_presence(status=discord.Status.online, activity=activity)
 # Utilises the sys import to quickly shut off the bot using the discord client rather than the terminal
-        sys.exit('The bot has been manually stopped via Discord')
-    else:
-            embed3= discord.Embed(
-                colour=(0x629632),
-                title="Insufficient Permissions..."
-            )
+#        sys.exit('The bot has been manually stopped via Discord')
+#    else:
+#            embed3= discord.Embed(
+#                colour=(0x629632),
+#                title="Insufficient Permissions..."
+#            )
 
-            embed3.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed3.add_field(name="You are missing the permissions required to use this command.", value="Error: #001", inline=False)
-            embed3.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
-            await ctx.send(embed=embed3)   
+#            embed3.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+#            embed3.add_field(name="You are missing the permissions required to use this command.", value="Error: #001", inline=False)
+#            embed3.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+#            await ctx.send(embed=embed3)   
 
 @client.command()
 @commands.has_permissions(manage_messages=True)

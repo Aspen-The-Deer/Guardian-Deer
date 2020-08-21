@@ -21,14 +21,14 @@ class Utilities(commands.Cog):
     async def changelog(self, ctx):
         embed= discord.Embed(
             colour=(0x629632),
-            title="P.A.R.R.O.T. V.1.2.20/20 (98c0f71)"
+            title="P.A.R.R.O.T. V.1.2.1.20/20 (8c74832)"
         )
 
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed.add_field(name="What's New?", value="Added: Online hosting to allow the bot to run 24/7", inline=False)
-        embed.add_field(name="Changes:", value="Music Commands are Temporarily Disabled.\nSocial Command Interactions will be Permanantly limited to One.", inline=False)
-        embed.add_field(name="Removed:", value=">Exit Dev Command", inline=False)
-        embed.add_field(name="What's Next?", value="Fixing VC Commands to be Compatable with Web Hosting.\nMore Social Commands.", inline=False)
+        embed.add_field(name="Changes:", value="Social Command Interactions will be Permanantly limited to One.", inline=False)
+        embed.add_field(name="Removed:", value=">play\n>join\n>leave", inline=False)
+        embed.add_field(name="What's Next?", value="More Social Commands.\nLevelling System.\nWarning / Strike system", inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
         await ctx.send(embed=embed)
@@ -84,17 +84,17 @@ class Utilities(commands.Cog):
 
             await ctx.send(embed=embed2)
             return
-        elif module == "Music" or module == "music":
-            embed2= discord.Embed(
-                colour=(0x629632),
-                title="Music Commands:"
-            )
+#        elif module == "Music" or module == "music":
+#            embed2= discord.Embed(
+#                colour=(0x629632),
+#                title="Music Commands:"
+#            )
 
-            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed2.add_field(name=">Join", value="Connects the bot to your voice channel.", inline=False)
-            embed2.add_field(name=">Leave", value="Disconnects the bot from it's current voice channel.", inline=False)
-            embed2.add_field(name=">Play", value="Plays the audio from any video on YouTube. (Must be a Valid URL)\n Usage: >play [Youtube URL]", inline=False)
-            embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+#            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+#            embed2.add_field(name=">Join", value="Connects the bot to your voice channel.", inline=False)
+#           embed2.add_field(name=">Leave", value="Disconnects the bot from it's current voice channel.", inline=False)
+#            embed2.add_field(name=">Play", value="Plays the audio from any video on YouTube. (Must be a Valid URL)\n Usage: >play [Youtube URL]", inline=False)
+#            embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)
             return

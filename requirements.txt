@@ -1,4 +1,2 @@
 discord
-discord.py[voice]
 git+git://github.com/kennethreitz/requests.git
-git+git://github.com/ytdl-org/youtube-dl.git

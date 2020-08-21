@@ -19,30 +19,9 @@ class Hugs(commands.Cog):
     @commands.command(aliases=['Hug'])
     async def hug(self, ctx, check):
         user = ctx.message.mentions[0]
-#        if len(ctx.message.mentions) < 1 :
-#            embed= discord.Embed(
-#                colour=(0x629632),
-#                title="An error has occured..."
-#            )
-
-#            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-#            embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
-#            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
-#            await ctx.send(embed=embed)   
-#            return
         if len(ctx.message.mentions) <= 1:
             responses = ["{} gives warm hugs to {}!", "{} notices {}'s lack of hugs, and hugs them!", "{} gives {} a big ol' hug!", "{} gives the best hugs, and they give them all to {}!", "{} shouts 'TACTICAL HUGS INCOMING!' as they hug tackle {}!", "{} sneakily hugs {}!", "{} asked for hugs from {} and got what they wanted!", "{} hug tackled {} unexpectedly!", "{} spotted {} and ran up to them for hugs!", "{} felt really lonely until {} hugged them from behind!"]
             choice = random.choice(responses)
-##            _list = " "
-##            i = 0
-##            while i < len(ctx.message.mentions):
-##                if i > 2:
-##                    break
-##                _list += ctx.message.mentions[i].mention
-##                if len(ctx.message.mentions) > 0:
-##                    if i == 0:
-##                        _list += " and "
-##                i += 1
             choice = choice.format(ctx.message.author.mention, user.mention)
             embed= discord.Embed(
                 colour=(0x629632)
@@ -73,30 +52,9 @@ class Hugs(commands.Cog):
     @commands.command(aliases=['Cuddle'])
     async def cuddle(self, ctx, check):
         user = ctx.message.mentions[0]
-#        if len(ctx.message.mentions) < 1 :
-#            embed= discord.Embed(
-#                colour=(0x629632),
-#                title="An error has occured..."
-#           )
-
-#            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-#            embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
-#            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
-#            await ctx.send(embed=embed)   
-#            return
         if len(ctx.message.mentions) <= 1:
             responses = ["{} cuddles {} warmly!", "{} cuddled with {} while watching a movie...", "{} spent all night cuddling {}!", "{} cuddled {} supportively!", "{} cuddled {} with all their love and might!", "{} noticed {} was lonely, and decided to give them amazing cuddles!", "{} purred softly as they gave loving cuddles to {}.", "{} dived on to {}! Cuddling them tight!", "{} pulled {} into their pillow fort for warm cuddles!", "{} marched up to {} demanding their daily cuddles, They soon got what they asked for!"]
             choice = random.choice(responses)
-##            _list = " "
-##            i = 0
-##            while i < len(ctx.message.mentions):
-##                if i > 2:
-##                    break
-##                _list += ctx.message.mentions[i].mention
-##                if len(ctx.message.mentions) > 0:
-##                    if i == 0:
-##                        _list += " and "
-##                i += 1
             choice = choice.format(ctx.message.author.mention, user.mention)
             embed= discord.Embed(
                 colour=(0x629632)

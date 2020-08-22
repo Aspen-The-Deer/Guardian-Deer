@@ -99,7 +99,7 @@ class Hugs(commands.Cog):
             json_images = http_json["images"]
             json_images_parse = json_images[0]
             embed.set_image(url=json_images_parse["shorturl"])
-            embed.add_field(name="Cuddles!", value=(choice), inline=False)
+            embed.add_field(name="Boops!", value=(choice), inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.send(embed=embed)   
         elif len(ctx.message.mentions) > 1:
@@ -110,6 +110,38 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="You may only boop one person at a time!", value="Error: #003", inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            await ctx.send(embed=embed)   
+            return
+
+    @commands.command(aliases=['Flop'])
+    async def flop(self, ctx, check):
+        user = ctx.message.mentions[0]
+        if len(ctx.message.mentions) <= 1:
+            responses = ["{} was searching for {} for ages, just so they could flop on them!\nHow cute!", "{} did a hecka big flop onto {}!", "{} flopped graciously on to {}!", "{} flopped happily infront of a surprised {}!", "Flopping was {}'s specialty, and they wanted to show off their skills to {}!", "{} happily flopped into {}'s arms!" ]
+            choice = random.choice(responses)
+            choice = choice.format(ctx.message.author.mention, user.mention)
+            embed= discord.Embed(
+                colour=(0x629632)
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            http_body = requests.get("https://api.furry.bot/v2/furry/flop")
+            http_json = json.loads(http_body.content)
+            json_images = http_json["images"]
+            json_images_parse = json_images[0]
+            embed.set_image(url=json_images_parse["shorturl"])
+            embed.add_field(name="Flop!", value=(choice), inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            await ctx.send(embed=embed)   
+        elif len(ctx.message.mentions) > 1:
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="An error has occured..."
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="You may only flop on one person at a time!", value="Error: #003", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
             await ctx.send(embed=embed)   
             return
@@ -149,6 +181,22 @@ class Hugs(commands.Cog):
 
     @boop.error
     async def boop_error(self, ctx, error):
+        if isinstance(error, commands.CheckAnyFailure):
+            print("An unknown error occurred in Hugs.py")
+        else:
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="An error has occured..."
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            await ctx.send(embed=embed)   
+            return
+
+    @flop.error
+    async def flop_error(self, ctx, error):
         if isinstance(error, commands.CheckAnyFailure):
             print("An unknown error occurred in Hugs.py")
         else:

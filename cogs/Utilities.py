@@ -109,6 +109,7 @@ class Utilities(commands.Cog):
             embed2.add_field(name=">Hug", value="Allows you to hug another user.\n Usage: >hug [User Mention]", inline=False)
             embed2.add_field(name=">Cuddle", value="Allows you to cuddle another user.\n Usage: >cuddle [User Mention]", inline=False)
             embed2.add_field(name=">Boop", value="Allows you to boop another user.\n Usage: >boop [User Mention]", inline=False)
+            embed2.add_field(name=">Flop", value="Allows you to flop on another user.\n Usage: >flop [User Mention]", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)
@@ -122,7 +123,7 @@ class Utilities(commands.Cog):
             embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed2.add_field(name=">Error", value="Lists the meanings of all known error codes.", inline=False)
             embed2.add_field(name=">Changelog", value="Opens the latest change log.", inline=False)
-            embed2.add_field(name=">Exit", value="Manually stops the bot's client without needing to do so in the terminal.", inline=False)
+            embed2.add_field(name=">Credits", value="Opens the credits page.", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)
@@ -152,6 +153,7 @@ class Utilities(commands.Cog):
             embed.add_field(name=">Help Utilities", value="This command returns help info for the Guardian's Utility commands.", inline=False)
             embed.add_field(name=">Help Moderation", value="This command returns help info for the Guardian's Moderation commands.", inline=False)
             embed.add_field(name=">Help Social", value="This command returns help info for the Guardian's Social commands.", inline=False)
+            embed.add_field(name=">Help Social", value="This command returns help info for the Guardian's Developer commands.\nNote: These commands are simply related to information about the Development process of Guardian Deer.", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed)

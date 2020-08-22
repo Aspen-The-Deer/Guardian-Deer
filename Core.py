@@ -56,5 +56,4 @@ async def on_ready():
     print(10 * '-')
     print('Command modules loaded:')
 
-client.run('Njk1MzIwODA1MzE1MTgyNzIz.XoYd9g.Ok1bx94G4wg5ODZm8Od2mUXe4t0')
-#client.run(os.environ['DISCORD_TOKEN'])
+client.run(os.environ['DISCORD_TOKEN'])

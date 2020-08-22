@@ -33,6 +33,21 @@ class Utilities(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    @commands.command(aliases=["credits", "Cred", "cred"])
+    async def Credits(self, ctx):
+        embed= discord.Embed(
+            colour=(0x629632),
+            title="Credits!"
+        )
+
+        embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        embed.add_field(name="Description:", value="These are the primary contributors to the Guardian Bot who are credited below.", inline=False)
+        embed.add_field(name="Beowulf#1863", value="Role: Owner\n Wrote the majority of code that allows the bot to function, as well as managing it's online hosting.", inline=False)
+        embed.add_field(name="Mathew!#1404", value="Role: Code / Debug Manager\n Helped massively with polishing off and improving features as well as debugging broken code.", inline=False)
+        embed.add_field(name="Aurora#0063", value="Role: Inspiration and Help with Initial Code.\n Inspired me to make this bot in the first place as well as teaching me the ropes with Discord bot creation in the first place.", inline=False)
+        embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+
+        await ctx.send(embed=embed)  
 
     @commands.command(aliases=["listerr", "Errors", "errors", "Error"])
     async def error(self, ctx):

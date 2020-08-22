@@ -22,6 +22,7 @@ async def unload(ctx, ext):
 
 # This is what looks for and opens all of the command modules (cogs)
 initial_extensions = ['cogs.Hugs',
+                      'cogs.Levelling',
                       'cogs.Punish',
                       'cogs.Shredder',
                       'cogs.Utilities']
@@ -55,5 +56,5 @@ async def on_ready():
     print(10 * '-')
     print('Command modules loaded:')
 
-
-client.run(os.environ['DISCORD_TOKEN'])
+client.run('Njk1MzIwODA1MzE1MTgyNzIz.XoYd9g.Ok1bx94G4wg5ODZm8Od2mUXe4t0')
+#client.run(os.environ['DISCORD_TOKEN'])

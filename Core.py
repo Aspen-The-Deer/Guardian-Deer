@@ -56,4 +56,5 @@ async def on_ready():
     print(10 * '-')
     print('Command modules loaded:')
 
+
 client.run(os.environ['DISCORD_TOKEN'])

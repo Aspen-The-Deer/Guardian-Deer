@@ -187,7 +187,7 @@ class Punishments(commands.Cog):
                 print(str(user_id)+' In ' +str(guild_id)+ ' Has been Warned For: ' +str(reasons))
                 gitHubFileName = ('warns.txt')
                 fileName = ('warns.txt')
-                repo_slug = ('Aspen-The-Deer/Guardian-Deer')
+                repo_slug = ('Aspen-The-Deer/Guardian-Deer/tree/master/cogs')
                 branch = ('master')
                 user = ('Aspen-The-Deer')
                 token = (os.environ['GIT_TOKEN'])
@@ -207,7 +207,7 @@ class Punishments(commands.Cog):
                 r2json = r2.json()
                 sha = None
 
-                for file in r2json['Aspen-The-Deer/Guardian-Deer/tree/master/cogs']:
+                for file in r2json['tree']:
                     # Found file, get the sha code
                     if file['path'] == gitHubFileName:
                         sha = file['sha']

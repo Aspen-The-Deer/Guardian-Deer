@@ -207,7 +207,7 @@ class Punishments(commands.Cog):
                 r2json = r2.json()
                 sha = None
 
-                for file in r2json['tree']:
+                for file in r2json['Aspen-The-Deer/Guardian-Deer/tree/master/cogs']:
                     # Found file, get the sha code
                     if file['path'] == gitHubFileName:
                         sha = file['sha']

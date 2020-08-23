@@ -217,7 +217,7 @@ class Punishments(commands.Cog):
                     print ("Could not find " + gitHubFileName + " in repos 'tree' ")
                     raise Exception
 
-                with open(fileName) as data:
+                with open(fileName, 'rb') as data:
                     content = base64.b64encode(data.read())
 
                 # gathered all the data, now let's push

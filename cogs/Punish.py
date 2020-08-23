@@ -187,7 +187,7 @@ class Punishments(commands.Cog):
                 print(str(user_id)+' In ' +str(guild_id)+ ' Has been Warned For: ' +str(reasons))
                 gitHubFileName = ('warns.txt')
                 fileName = ('warns.txt')
-                repo_slug = ('Aspen-The-Deer/Guardian-Deer/tree/master/cogs')
+                repo_slug = ('Aspen-The-Deer/Guardian-Deer')
                 branch = ('master')
                 user = ('Aspen-The-Deer')
                 token = (os.environ['GIT_TOKEN'])

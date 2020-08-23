@@ -191,16 +191,17 @@ class Punishments(commands.Cog):
                 branch = ('master')
                 user = ('Aspen-The-Deer')
                 token = (os.environ['GIT_TOKEN'])
+                rq = requests.Session()
                 message = "Automated update " + str(datetime.datetime.now())
                 path = "https://api.github.com/repos/%s/branches/%s" % (repo_slug, branch)
 
-                r = requests.get(path, auth=(user,token))
+                r = rq.get(path, auth=(user,token))
                 if not r.ok:
                     print("Error when retrieving branch info from %s" % path)
                     print("Reason: %s [%d]" % (r.text, r.status_code))
                 rjson = r.json()
                 treeurl = rjson['commit']['commit']['tree']['url']
-                r2 = requests.get(treeurl, auth=(user,token))
+                r2 = rq.get(treeurl, auth=(user,token))
                 if not r2.ok:
                     print("Error when retrieving commit tree from %s" % treeurl)
                     print("Reason: %s [%d]" % (r2.text, r2.status_code))
@@ -230,7 +231,7 @@ class Punishments(commands.Cog):
                     inputdata["sha"] = str(sha)
                 updateURL = "https://github.com/Aspen-The-Deer/Guardian-Deer/blob/master/" + gitHubFileName
                 try:
-                    rPut = requests.put(updateURL, auth=(user,token), data = json.dumps(inputdata))
+                    rPut = rq.put(updateURL, auth=(user,token), data = json.dumps(inputdata))
                     if not rPut.ok:
                         print("Error when pushing to %s" % updateURL)
                         print("Reason: %s [%d]" % (rPut.text, rPut.status_code))

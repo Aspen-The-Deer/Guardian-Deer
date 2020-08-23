@@ -2,6 +2,7 @@ import discord
 import sys
 import time
 import random
+import os
 from discord.ext import commands
 
 class Punishments(commands.Cog):
@@ -158,6 +159,7 @@ class Punishments(commands.Cog):
         await ctx.channel.send(embed=embed)
         return
 
+
     user_id = None
     guild_id = None
     reasons = None
@@ -168,8 +170,16 @@ class Punishments(commands.Cog):
         guild_id = ctx.message.guild.id
         user_id = userId
         reasons = reason
-        with open("warns.txt", "a") as f:
-            f.write(f"User: {user_id}, Warn Location: {guild_id}, Reason: {reasons}")
+        direct = os.getcwd()
+        os.chdir(direct)
+        try:
+            f = open("warns.txt", "a")
+        except PermissionError:
+            return "Invalid Permissions"
+        else:
+            with f:
+                f.write(f"User: {user_id}, Warn Location: {guild_id}, Reason: {reasons}")
+                print(str(user_id)+' In ' +str(guild_id)+ ' Has been Warned For: ' +str(reasons))
 
 
 def setup(client):

@@ -158,5 +158,19 @@ class Punishments(commands.Cog):
         await ctx.channel.send(embed=embed)
         return
 
+    user_id = None
+    guild_id = None
+    reasons = None
+
+    @commands.command(aliases = ['Warn', 'Strike', 'strike'])
+    async def warn(self, ctx, *, userId, reason: str):
+        global user_id, reasons, guild_id
+        guild_id = ctx.message.guild.id
+        user_id = userId
+        reasons = reason
+        with open("warns.txt", "a") as f:
+            f.write(f"User: {user_id}, Warn Location: {guild_id}, Reason: {reasons}")
+
+
 def setup(client):
     client.add_cog(Punishments(client))

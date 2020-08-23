@@ -146,6 +146,38 @@ class Hugs(commands.Cog):
             await ctx.send(embed=embed)   
             return
 
+    @commands.command(aliases=['Kiss'])
+    async def kiss(self, ctx, check):
+        user = ctx.message.mentions[0]
+        if len(ctx.message.mentions) <= 1:
+            responses = []
+            choice = random.choice(responses)
+            choice = choice.format(ctx.message.author.mention, user.mention)
+            embed= discord.Embed(
+                colour=(0x629632)
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            http_body = requests.get("https://api.furry.bot/v2/furry/kiss")
+            http_json = json.loads(http_body.content)
+            json_images = http_json["images"]
+            json_images_parse = json_images[0]
+            embed.set_image(url=json_images_parse["shorturl"])
+            embed.add_field(name="Kiss!", value=(choice), inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            await ctx.send(embed=embed)   
+        elif len(ctx.message.mentions) > 1:
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="An error has occured..."
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="You may only kiss one person at a time!", value="Error: #003", inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            await ctx.send(embed=embed)   
+            return
+
         
     @hug.error
     async def hug_error(self, ctx, error):
@@ -197,6 +229,22 @@ class Hugs(commands.Cog):
 
     @flop.error
     async def flop_error(self, ctx, error):
+        if isinstance(error, commands.CheckAnyFailure):
+            print("An unknown error occurred in Hugs.py")
+        else:
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="An error has occured..."
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            await ctx.send(embed=embed)   
+            return
+
+    @kiss.error
+    async def kiss_error(self, ctx, error):
         if isinstance(error, commands.CheckAnyFailure):
             print("An unknown error occurred in Hugs.py")
         else:

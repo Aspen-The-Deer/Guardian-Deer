@@ -228,7 +228,7 @@ class Punishments(commands.Cog):
                 inputdata["content"] = str(content)
                 if sha:
                     inputdata["sha"] = str(sha)
-                updateURL = "https://github.com/Aspen-The-Deer/Guardian-Deer" + gitHubFileName
+                updateURL = "https://github.com/Aspen-The-Deer/Guardian-Deer/blob/master/" + gitHubFileName
                 try:
                     rPut = requests.put(updateURL, auth=(user,token), data = json.dumps(inputdata))
                     if not rPut.ok:

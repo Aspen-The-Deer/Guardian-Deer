@@ -163,7 +163,7 @@ class Punishments(commands.Cog):
     reasons = None
 
     @commands.command(aliases = ['Warn', 'Strike', 'strike'])
-    async def warn(self, ctx, *, userId, reason: str):
+    async def warn(self, ctx, userId, *, reason: str):
         global user_id, reasons, guild_id
         guild_id = ctx.message.guild.id
         user_id = userId

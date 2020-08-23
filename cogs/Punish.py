@@ -222,13 +222,12 @@ class Punishments(commands.Cog):
 
                 # gathered all the data, now let's push
                 inputdata = {}
-                inputdata["path"] = gitHubFileName
-                inputdata["branch"] = branch
-                inputdata["message"] = message
-                inputdata["content"] = content
+                inputdata["path"] = str(gitHubFileName)
+                inputdata["branch"] = str(branch)
+                inputdata["message"] = str(message)
+                inputdata["content"] = str(content)
                 if sha:
                     inputdata["sha"] = str(sha)
-
                 updateURL = "https://api.github.com/repos/EBISPOT/RDF-platform/contents/" + gitHubFileName
                 try:
                     rPut = requests.put(updateURL, auth=(user,token), data = json.dumps(inputdata))

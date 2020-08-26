@@ -184,6 +184,7 @@ class Hugs(commands.Cog):
         if isinstance(error, commands.CheckAnyFailure):
             print("An unknown error occurred in Hugs.py")
         else:
+            print(error)
             embed= discord.Embed(
                 colour=(0x629632),
                 title="An error has occured..."

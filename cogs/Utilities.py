@@ -80,7 +80,6 @@ class Utilities(commands.Cog):
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name=">Ping", value="This command returns the current ping of the bot in milliseconds.", inline=False)
             embed.add_field(name=">Purge", value="Deletes a specified number of previous messages. \n Useage: >purge [# of Messages]", inline=False)
-            embed.add_field(name=">Uptime", value="NULL.", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed)
@@ -153,7 +152,7 @@ class Utilities(commands.Cog):
             embed.add_field(name=">Help Utilities", value="This command returns help info for the Guardian's Utility commands.", inline=False)
             embed.add_field(name=">Help Moderation", value="This command returns help info for the Guardian's Moderation commands.", inline=False)
             embed.add_field(name=">Help Social", value="This command returns help info for the Guardian's Social commands.", inline=False)
-            embed.add_field(name=">Help Social", value="This command returns help info for the Guardian's Developer commands.\nNote: These commands are simply related to information about the Development process of Guardian Deer.", inline=False)
+            embed.add_field(name=">Help Dev", value="This command returns help info for the Guardian's Developer commands.\nNote: These commands are simply related to information about the Development process of Guardian Deer.", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed)

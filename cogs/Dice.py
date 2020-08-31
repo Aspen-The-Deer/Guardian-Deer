@@ -35,12 +35,12 @@ class Dice(commands.Cog):
         responses = ('{} rolled a {}!')
         responses = responses.format(ctx.message.author.mention, total)
         embed= discord.Embed(
-        colour=(0x744d3b)
+        colour=(0x629632)
         )
 
-        embed.set_author(name="DnD Deer", icon_url="https://media.discordapp.net/attachments/745442555189133335/748694161187930223/aspenimg.png")
+        embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed.add_field(name = (dice), value = (responses))
-        embed.set_footer(text="Type 'dnd help' for a list of commands!") 
+        embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
         await ctx.channel.send(embed=embed)
         
 

@@ -4,10 +4,6 @@ import random
 import time
 import datetime
 from discord.ext import commands
-s = 0
-m = 0
-h = 0
-d = 0
 
 class Utilities(commands.Cog):
 
@@ -20,42 +16,6 @@ class Utilities(commands.Cog):
         print('Utilities.py')
         time.sleep(0.2)
         print(20 * '~')
-
-    online = 0
-    online = 1
-    while online == 1:
-        time.sleep(5)
-        s += 5
-        if s >= 60:
-            s = 0
-            m += 1
-        if m >= 60:
-            m = 0
-            h += 1
-        if h >= 24:
-            h = 0
-            d += 1
-    return
-
-
-
-    @commands.command(aliases = ['Uptime'])
-    async def uptime(self,ctx):
-        global s, m, h, d
-        uptime = ('{}Day(s), {}Hour(s), {}Minute(s) and {}Seconds')
-        uptime = uptime.format(d, h, m, s)
-        embed= discord.Embed(
-            colour=(0x629632),
-            title="Uptime!"
-        )
-
-        embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-        embed.add_field(name="I have been online for:", value=(uptime), inline=False)
-        embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
-
-        await ctx.send(embed=embed)
-
-
 
 
     @commands.command(aliases=["Changelog", "log", "Log", "release", "Release", "Version", "version"])

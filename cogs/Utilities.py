@@ -35,6 +35,7 @@ class Utilities(commands.Cog):
         if h >= 24:
             h = 0
             d += 1
+    return
 
 
 

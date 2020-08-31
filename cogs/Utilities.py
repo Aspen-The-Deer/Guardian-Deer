@@ -41,7 +41,7 @@ class Utilities(commands.Cog):
 
 
 
-    @commands.command(aliases = ['u', 'U', 'Uptime'])
+    @commands.command(aliases = ['Uptime'])
     async def uptime(self,ctx):
         global s, m, h, d
         uptime = ('{}Day(s), {}Hour(s), {}Minute(s) and {}Seconds')

@@ -20,24 +20,21 @@ class Utilities(commands.Cog):
         print('Utilities.py')
         time.sleep(0.2)
         print(20 * '~')
-        online = 0
-        global s, m, h, d
-        online = 1
-        while online == 1:
-            time.sleep(5)
-            s += 5
-            if s >= 60:
-                s = 0
-                m += 1
-                return
-            if m >= 60:
-                m = 0
-                h += 1
-                return
-            if h >= 24:
-                h = 0
-                d += 1
-                return
+
+    online = 0
+    online = 1
+    while online == 1:
+        time.sleep(5)
+        s += 5
+        if s >= 60:
+            s = 0
+            m += 1
+        if m >= 60:
+            m = 0
+            h += 1
+        if h >= 24:
+            h = 0
+            d += 1
 
 
 

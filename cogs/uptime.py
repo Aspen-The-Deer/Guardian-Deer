@@ -29,4 +29,4 @@ class Uptime(commands.Cog):
 
 
 def setup(client):
-    bot.add_cog(Uptime(client))
+    client.add_cog(Uptime(client))

@@ -28,5 +28,5 @@ class Uptime(commands.Cog):
             await ctx.channel.send("Current uptime: " + text)
 
 
-def setup(bot):
-    bot.add_cog(Uptime(bot))
+def setup(client):
+    bot.add_cog(Uptime(client))

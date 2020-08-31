@@ -9,6 +9,11 @@ class Uptime(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        time.sleep(0.2)
+        print('Uptime.py')
+
     @commands.command(pass_context=True)
     async def uptime(self, ctx):
         current_time = time.time()

@@ -25,6 +25,7 @@ initial_extensions = ['cogs.Hugs',
                       'cogs.Punish',
                       'cogs.Dice',
                       'cogs.Shredder',
+                      'cogs.Uptime',
                       'cogs.Utilities']
 
 if __name__ =='__main__':

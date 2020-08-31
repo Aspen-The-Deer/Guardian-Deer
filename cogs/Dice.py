@@ -1,4 +1,6 @@
 import discord
+import json
+import requests
 import random
 import time
 from discord.ext import commands
@@ -61,7 +63,7 @@ class Dice(commands.Cog):
                 dice = ('Rolling '+str(dice_num)+' d'+str(dice_type+'...'))
             else:
                 dice = ('Rolling '+str(dice_num)+' d'+str(dice_type)+"'s...")
-            responses = ('{} rolled a {}!')
+                responses = ('{} rolled a {}!')
             responses = responses.format(ctx.message.author.mention, total)
             embed= discord.Embed(
             colour=(0x629632)
@@ -72,7 +74,34 @@ class Dice(commands.Cog):
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.channel.send(embed=embed)
 
-        
+    @roll.error
+    async def roll_error(self, ctx, error):
+        if isinstance(error, commands.CheckAnyFailure):
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="An error has occured..."
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="Numbers Entered are Too Large!", value="Error: #004", inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            await ctx.send(embed=embed)   
+            return        
+
+    @commands.command(aliases=['quote'])
+    async def Quote(self, ctx, check):
+        embed= discord.Embed(
+            colour=(0x629632)
+        )
+
+        embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        http_body = requests.get("https://boredhumans.com/quotes.php")
+        http_json = json.loads(http_body.content)
+        json_images = http_json["images"]
+        json_images_parse = json_images[0]
+        embed.set_image(url=json_images_parse["shortURL"])
+        embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+        await ctx.send(embed=embed)   
 
 def setup(client):
     client.add_cog(Dice(client))

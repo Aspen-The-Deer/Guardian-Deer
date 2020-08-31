@@ -65,7 +65,7 @@ class Hugs(commands.Cog):
             http_json = json.loads(http_body.content)
             json_images = http_json["images"]
             json_images_parse = json_images[0]
-            embed.set_image(url=json_images_parse["shorturl"])
+            embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Cuddles!", value=(choice), inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.send(embed=embed)   
@@ -98,7 +98,7 @@ class Hugs(commands.Cog):
             http_json = json.loads(http_body.content)
             json_images = http_json["images"]
             json_images_parse = json_images[0]
-            embed.set_image(url=json_images_parse["shorturl"])
+            embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Boops!", value=(choice), inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.send(embed=embed)   
@@ -130,7 +130,7 @@ class Hugs(commands.Cog):
             http_json = json.loads(http_body.content)
             json_images = http_json["images"]
             json_images_parse = json_images[0]
-            embed.set_image(url=json_images_parse["shorturl"])
+            embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Flop!", value=(choice), inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.send(embed=embed)   
@@ -162,7 +162,7 @@ class Hugs(commands.Cog):
             http_json = json.loads(http_body.content)
             json_images = http_json["images"]
             json_images_parse = json_images[0]
-            embed.set_image(url=json_images_parse["shorturl"])
+            embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Kiss!", value=(choice), inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.send(embed=embed)   

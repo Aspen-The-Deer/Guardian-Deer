@@ -138,7 +138,6 @@ class Utilities(commands.Cog):
             embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed2.add_field(name=">Roll", value="Rolls the dice!\n Usage: >roll [Number of Dice]d[Number of Sides on Dice]", inline=False)
             embed2.add_field(name=">Coinflip", value="Flips a coin for you!\n 1 in 6000 chance of landing on it's side!", inline=False)
-            embed2.add_field(name=">8Ball", value="Coming soon!", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)

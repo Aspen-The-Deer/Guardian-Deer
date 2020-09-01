@@ -22,14 +22,14 @@ class Utilities(commands.Cog):
     async def changelog(self, ctx):
         embed= discord.Embed(
             colour=(0x629632),
-            title="P.A.R.R.O.T. V.1.2.1.20/20 (8c74832)"
+            title="P.A.R.R.O.T. V.1.3.1_1/09/20 (4f7704b)"
         )
 
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-        embed.add_field(name="What's New?", value="Added: Online hosting to allow the bot to run 24/7", inline=False)
-        embed.add_field(name="Changes:", value="Social Command Interactions will be Permanantly limited to One.", inline=False)
-        embed.add_field(name="Removed:", value=">play\n>join\n>leave", inline=False)
-        embed.add_field(name="What's Next?", value="More Social Commands.", inline=False)
+        embed.add_field(name="What's New?", value="Added: Gaming commands >Roll and >Coinflip\nFurther additions to the Social Extension\n>Uptime so you can see how long it has been since the last restart", inline=False)
+        embed.add_field(name="Changes:", value="Added >Help Gaming to the Utilities Extension.", inline=False)
+        embed.add_field(name="Removed:", value="Nothing...", inline=False)
+        embed.add_field(name="What's Next?", value="More Social & Gaming Related Commands.\nLogging for deleted and edited messages.\n>Suggestions (DM's only)\nRandomised time-based profile statuses!\n>FAQ command alongside >Ask", inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
         await ctx.send(embed=embed)
@@ -43,9 +43,8 @@ class Utilities(commands.Cog):
 
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed.add_field(name="Description:", value="These are the primary contributors to the Guardian Bot who are credited below.", inline=False)
-        embed.add_field(name="Beowulf#1863", value="Role: Owner\n Wrote the majority of code that allows the bot to function, as well as managing it's online hosting.", inline=False)
-        embed.add_field(name="Mathew!#1404", value="Role: Code / Debug Manager\n Helped massively with polishing off and improving features as well as debugging broken code.", inline=False)
-        embed.add_field(name="Aurora#0063", value="Role: Inspiration and Help with Initial Code.\n Inspired me to make this bot in the first place as well as teaching me the ropes with Discord bot creation in the first place.", inline=False)
+        embed.add_field(name="Beowulf#1863", value="Role: Owner\n Primary developer of the Guardian Deer bot, as well as manager for the GitHub and Heroku dependencies.", inline=False)
+        embed.add_field(name="Mathew!#1404", value="Role: Assistant Developer\n Assistant in developing new code modules and features, as well as DeBugging broken code.", inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
         await ctx.send(embed=embed)  
@@ -130,6 +129,21 @@ class Utilities(commands.Cog):
             await ctx.send(embed=embed2)
             return
 
+        elif module == "Gaming" or module == "gaming":
+            embed2= discord.Embed(
+                colour=(0x629632),
+                title="Gaming Commands:"
+            )
+
+            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed2.add_field(name=">Roll", value="Rolls the dice!\n Usage: >roll [Number of Dice]d[Number of Sides on Dice]", inline=False)
+            embed2.add_field(name=">Coinflip", value="Flips a coin for you!\n 1 in 6000 chance of landing on it's side!", inline=False)
+            embed2.add_field(name=">8Ball", value="Coming soon!", inline=False)
+            embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+
+            await ctx.send(embed=embed2)
+            return
+
         else:
             embed2= discord.Embed(
                 colour=(0x629632),
@@ -154,6 +168,7 @@ class Utilities(commands.Cog):
             embed.add_field(name=">Help Utilities", value="This command returns help info for the Guardian's Utility commands.", inline=False)
             embed.add_field(name=">Help Moderation", value="This command returns help info for the Guardian's Moderation commands.", inline=False)
             embed.add_field(name=">Help Social", value="This command returns help info for the Guardian's Social commands.", inline=False)
+            embed.add_field(name=">Help Gaming", value="This command returns help info for the Guardian's Gaming commands.", inline=False)
             embed.add_field(name=">Help Dev", value="This command returns help info for the Guardian's Developer commands.\nNote: These commands are simply related to information about the Development process of Guardian Deer.", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 

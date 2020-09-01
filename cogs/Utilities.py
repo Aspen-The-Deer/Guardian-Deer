@@ -17,6 +17,27 @@ class Utilities(commands.Cog):
         time.sleep(0.2)
         print(20 * '~')
 
+    @commands.command(aliases = ['invite', 'add', 'Add'])
+    async def Invite(self, ctx):
+        member = ctx.message.author
+        embed= discord.Embed(
+            colour=(0x629632)
+        )
+
+        embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        embed.add_field(name="Invite link sent to:", value=str(member), inline=False)
+        embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+
+        await ctx.channel.send(embed=embed)
+        embed2= discord.Embed(
+            colour=(0x629632)
+        )
+
+        embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        embed2.add_field(name="Here's an Invite Link!", value='https://discord.com/oauth2/authorize?client_id=695320805315182723&scope=bot&permissions=125014', inline=False)
+        embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+        await member.send(embed=embed2)
+
 
     @commands.command(aliases=["Changelog", "log", "Log", "release", "Release", "Version", "version"])
     async def changelog(self, ctx):

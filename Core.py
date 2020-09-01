@@ -9,13 +9,13 @@ client.remove_command('help')
  
 
 @client.command()
-@commands.has_permissions(manage_messages=True)
+@commands.is_owner()
 async def load(ctx, ext):
     client.load_extension(f'cogs.{ext}')
     print('Extension Loaded')
 
 @client.command()
-@commands.has_permissions(manage_messages=True)
+@commands.is_owner()
 async def unload(ctx, ext):
     client.unload_extension(f'cogs.{ext}')
     print('Extension Un-Loaded')

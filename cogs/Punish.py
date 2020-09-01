@@ -23,7 +23,7 @@ class Punishments(commands.Cog):
 
 
     @commands.command(aliases =["Ban", "b", "B"])
-    @commands.has_permissions(manage_messages=True)
+    @commands.has_permissions(ban_members=True)
     async def ban (self, ctx, member:discord.User=None, *, reason: str):
         server = ctx.guild.name
         mod = ctx.message.author.mention
@@ -86,7 +86,7 @@ class Punishments(commands.Cog):
             print(error)
 
     @commands.command(aliases =["Kick", "k", "K"])
-    @commands.has_permissions(manage_messages=True)
+    @commands.has_permissions(kick_members=True)
     async def kick (self, ctx, member:discord.User=None, *, reason: str):
         server = ctx.guild.name
         mod = ctx.message.author.mention
@@ -148,6 +148,7 @@ class Punishments(commands.Cog):
             print(error)
 
     @commands.command(aliases =["Unban", "u", "U"])
+    @commands.has_permissions(ban_members=True)
     @commands.guild_only()
     async def unban(self, ctx, *, userId):
         mod = ctx.message.author.mention
@@ -163,85 +164,6 @@ class Punishments(commands.Cog):
 
         await ctx.channel.send(embed=embed)
         return
-
-
-    user_id = None
-    guild_id = None
-    reasons = None
-
-    @commands.command(aliases = ['Warn', 'Strike', 'strike'])
-    async def warn(self, ctx, userId, *, reason: str):
-        global user_id, reasons, guild_id
-        guild_id = ctx.message.guild.id
-        user_id = userId
-        reasons = reason
-        direct = os.getcwd()
-        os.chdir(direct)
-        try:
-            f = open("warns.txt", "a")
-        except PermissionError:
-            return "Invalid Permissions"
-        else:
-            with f:
-                f.write(f"User: {user_id}, Warn Location: {guild_id}, Reason: {reasons}")
-                print(str(user_id)+' In ' +str(guild_id)+ ' Has been Warned For: ' +str(reasons))
-                gitHubFileName = ('warns.txt')
-                fileName = ('warns.txt')
-                repo_slug = ('Aspen-The-Deer/Guardian-Deer')
-                branch = ('master')
-                user = ('Aspen-The-Deer')
-                token = (os.environ['GIT_TOKEN'])
-                rq = requests.Session()
-                message = "Automated update " + str(datetime.datetime.now())
-                path = "https://api.github.com/repos/%s/branches/%s" % (repo_slug, branch)
-
-                r = rq.get(path, auth=(user,token))
-                if not r.ok:
-                    print("Error when retrieving branch info from %s" % path)
-                    print("Reason: %s [%d]" % (r.text, r.status_code))
-                rjson = r.json()
-                treeurl = rjson['commit']['commit']['tree']['url']
-                r2 = rq.get(treeurl, auth=(user,token))
-                if not r2.ok:
-                    print("Error when retrieving commit tree from %s" % treeurl)
-                    print("Reason: %s [%d]" % (r2.text, r2.status_code))
-                r2json = r2.json()
-                sha = None
-
-                for file in r2json['tree']:
-                    # Found file, get the sha code
-                    if file['path'] == gitHubFileName:
-                        sha = file['sha']
-
-                # if sha is None after the for loop, we did not find the file name!
-                if sha is None:
-                    print ("Could not find " + gitHubFileName + " in repos 'tree' ")
-                    raise Exception
-
-                with open(fileName, 'rb') as data:
-                    content = base64.b64encode(data.read())
-
-                # gathered all the data, now let's push
-                inputdata = {}
-                inputdata["path"] = str(gitHubFileName)
-                inputdata["branch"] = str(branch)
-                inputdata["message"] = str(message)
-                inputdata["content"] = str(content)
-                if sha:
-                    inputdata["sha"] = str(sha)
-                updateURL = "https://github.com/Aspen-The-Deer/Guardian-Deer/blob/master/" + gitHubFileName
-                try:
-                    rPut = rq.put(updateURL, auth=(user,token), data = json.dumps(inputdata))
-                    if not rPut.ok:
-                        print("Error when pushing to %s" % updateURL)
-                        print("Reason: %s [%d]" % (rPut.text, rPut.status_code))
-                        raise Exception
-                except requests.exceptions.RequestException as e:
-                    print ('Something went wrong! I will print all the information that is available so you can figure out what happend!')
-                    print (rPut)
-                    print (rPut.headers)
-                    print (rPut.text)
-                    print (e)
 
 def setup(client):
     client.add_cog(Punishments(client))

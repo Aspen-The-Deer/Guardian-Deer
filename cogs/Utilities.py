@@ -20,7 +20,7 @@ class Utilities(commands.Cog):
     @commands.command(aliases = ['invite', 'add', 'Add'])
     async def Invite(self, ctx):
         member = ctx.message.author
-        mem = member.Mention
+        mem = ctx.message.author.mention
         embed= discord.Embed(
             colour=(0x629632)
         )

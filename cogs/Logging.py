@@ -14,8 +14,9 @@ class Logging(commands.Cog):
         print('Logging.py')
 
     @commands.Cog.listener()
-    async def on_message_edit(self, ctx, before, after, channel: discord.channel=None):
+    async def on_message_edit(self, ctx, before, after):
         member = ctx.message.author
+        channel = ctx.message.channel
         channel = channel
         logger = discord.utils.get(discord.guild.TextChannel, name="logs")
         if not after.author.bot:

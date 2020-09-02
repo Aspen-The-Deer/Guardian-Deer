@@ -3,6 +3,8 @@ import datetime
 import time
 from discord.ext import commands
 
+guild = 0
+
 class Logging(commands.Cog):
 
     def __init__(self, client):
@@ -14,11 +16,13 @@ class Logging(commands.Cog):
         print('Logging.py')
 
     @commands.Cog.listener()
-    async def on_message_edit(self, before, after):
+    async def on_message_edit(self, before, after, ctx):
+        global guild
+        guild = ctx.message.guild
         #member = ctx.message.author
         #channel = ctx.message.channel
         #channel = channel
-        logger = discord.utils.find(discord.guild.TextChannel, "logs")
+        logger = discord.utils.get(guild.text_channels, name="logs")
         if not after.author.bot:
             if before.content != after.content:
                 embed= discord.Embed(

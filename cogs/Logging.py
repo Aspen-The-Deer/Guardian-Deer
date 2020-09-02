@@ -19,6 +19,7 @@ class Logging(commands.Cog):
     async def on_message_edit(self, before, after):
         member = after.author.display_name
         logger = discord.utils.get(after.guild.channels, name='logs')
+        location = after.channel
         if not after.author.bot:
             if before.content != after.content:
                 embed= discord.Embed(
@@ -27,8 +28,9 @@ class Logging(commands.Cog):
 
                 embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
                 embed.add_field(name = ('Author:'), value = (member), inline=False)
-                embed.add_field(name = ('Before:'), value = before.content, inline=False)
-                embed.add_field(name = ('After:'), value = after.content, inline=False)
+                embed.add_field(name = ('Before:'), value = ('"')+(before.content)+('"'), inline=False)
+                embed.add_field(name = ('After:'), value = ('"')+(after.content)+('"'), inline=False)
+                embed.add_field(name = ('In:'), value = (location), inline=False)
                 embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
                 await logger.send(embed=embed)
 

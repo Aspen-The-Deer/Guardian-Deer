@@ -18,7 +18,7 @@ class Logging(commands.Cog):
     @commands.Cog.listener()
     async def on_message_edit(self, ctx, before, after):
         member = after.author.display_name
-        logger = discord.utils.get(ctx.guild.text_channels, name='logs')
+        logger = discord.utils.get(after.guild, name='logs')
         if not after.author.bot:
             if before.content != after.content:
                 embed= discord.Embed(

@@ -18,7 +18,7 @@ class Logging(commands.Cog):
         #member = ctx.message.author
         #channel = ctx.message.channel
         #channel = channel
-        logger = discord.utils.get(discord.guild.TextChannel, name="logs")
+        logger = discord.utils.find(discord.guild.TextChannel, name="logs")
         if not after.author.bot:
             if before.content != after.content:
                 embed= discord.Embed(

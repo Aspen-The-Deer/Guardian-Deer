@@ -3,9 +3,6 @@ import sys
 import time
 import random
 import os
-import github
-import requests
-import base64
 import json
 import datetime
 from discord.ext import commands

@@ -150,7 +150,7 @@ class Hugs(commands.Cog):
     async def kiss(self, ctx, check):
         user = ctx.message.mentions[0]
         if len(ctx.message.mentions) <= 1:
-            responses = []
+            responses = ['{} smooches {} with love and passion']
             choice = random.choice(responses)
             choice = choice.format(ctx.message.author.mention, user.mention)
             embed= discord.Embed(

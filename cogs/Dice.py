@@ -15,7 +15,7 @@ class Dice(commands.Cog):
         time.sleep(0.2)
         print('Dice.py')
 
-    @commands.command(aliases = ['Roll', 'r', 'R'])
+    @commands.command(aliases = ['Roll', 'r', 'R>'])
     async def roll(self, ctx, *, message:str):
         try:
             dice_num = message[:1]
@@ -90,8 +90,8 @@ class Dice(commands.Cog):
 
     @commands.command(aliases = ['hot', 'HoT', 'Heads or Tails', 'heads or tails', 'Coinflip'])
     async def coinflip(self, ctx):
-        coin = random.randint(1,6000)
-        if int(coin) == 2666:
+        coin = random.randint(1,3)
+        if int(coin) == 3:
             embed= discord.Embed(
             colour=(0x629632)
             )

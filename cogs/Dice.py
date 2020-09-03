@@ -90,8 +90,8 @@ class Dice(commands.Cog):
 
     @commands.command(aliases = ['hot', 'HoT', 'Heads or Tails', 'heads or tails', 'Coinflip'])
     async def coinflip(self, ctx):
-        coin = random.randint(1,3)
-        if int(coin) == 3:
+        coin = random.randint(1,6000)
+        if int(coin) == 690:
             embed= discord.Embed(
             colour=(0x629632)
             )

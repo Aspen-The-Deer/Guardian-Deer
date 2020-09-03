@@ -63,6 +63,7 @@ class Logging(commands.Cog):
             title="User Profile:"
         )
 
+        embed.set_thumbnail(url=target.avatar_url)
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed.add_field(name="Name:", value= menti, inline=False)
         embed.add_field(name="Id:", value= target.id, inline=False)

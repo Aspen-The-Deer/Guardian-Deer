@@ -23,7 +23,8 @@ class Logging(commands.Cog):
         if not after.author.bot:
             if before.content != after.content:
                 embed= discord.Embed(
-                    colour=(0x629632)
+                    colour=(0x629632),
+                    title = "Message Edited:"
                 )
 
                 embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
@@ -41,7 +42,8 @@ class Logging(commands.Cog):
         location = message.channel.mention
         if not message.author.bot:
             embed= discord.Embed(
-                colour=(0x629632)
+                colour=(0x629632),
+                title = "Message Deleted:"
             )
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")

@@ -15,7 +15,7 @@ class Dice(commands.Cog):
         time.sleep(0.2)
         print('Dice.py')
 
-    @commands.command(aliases = ['Roll'])
+    @commands.command(aliases = ['Roll', 'r', 'R'])
     async def roll(self, ctx, *, message:str):
         try:
             dice_num = message[:1]

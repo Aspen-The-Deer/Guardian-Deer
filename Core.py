@@ -50,10 +50,8 @@ async def ping(ctx):
 @client.event
 async def on_ready():
 # Sets the bot status
-    member = '606855758612660327'
     activity = discord.Game(name="in the forest!", type=2)
     await client.change_presence(status=discord.Status.online, activity=activity)
-    await member.send('Startup Complete, Now: Online.')
     print(20 * '~')
     print('Logged in as:')
     print(client.user.name, '#6550')

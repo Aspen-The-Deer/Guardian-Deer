@@ -67,7 +67,7 @@ class Logging(commands.Cog):
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed.add_field(name="Name:", value= menti, inline=False)
         embed.add_field(name="Id:", value= target.id, inline=False)
-        embed.add_field(name="Highest Role:", value= target.top_roll.mention, inline=False)
+        embed.add_field(name="Highest Role:", value= target.top_role.mention, inline=False)
         embed.add_field(name="Status:", value= str(target.status).title(), inline=False)
         embed.add_field(name="Activity:", value= f"{str(target.activity.type).split('.')[-1].title() if target.activity else 'Not doing anything right now.'} {target.activity.name if target.activity else ''}", inline=False)
         embed.add_field(name="Joined:", value= target.joined_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)

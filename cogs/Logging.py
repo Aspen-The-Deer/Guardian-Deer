@@ -54,7 +54,7 @@ class Logging(commands.Cog):
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await logger.send(embed=embed)
 
-    @commands.command(name="userinfo", aliases=["memberinfo", "ui", "mi"])
+    @commands.command(aliases=["profile", "ui", "mi", "userinfo", "Profile"])
     async def user_info(self, ctx, target: discord.User=None):
         target = target or ctx.author
         menti = target.mention
@@ -78,7 +78,7 @@ class Logging(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command(name="serverinfo", aliases=["guildinfo", "si", "gi"])
+    @commands.command(aliases=["info", "si", "gi", "Info"])
     async def server_info(self, ctx):
         statuses = [len(list(filter(lambda m: str(m.status) == "online", ctx.guild.members))),
                     len(list(filter(lambda m: str(m.status) == "idle", ctx.guild.members))),
@@ -94,14 +94,14 @@ class Logging(commands.Cog):
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed.add_field(name="Name:", value= ctx.guild.name, inline=False)
         embed.add_field(name="Id:", value= ctx.guild.id, inline=False)
-        embed.add_field(name="Owner:", value= ctx.guild.owner.mention, inline=False)
         embed.add_field(name="Region:", value= ctx.guild.region, inline=False)
+        embed.add_field(name="Owner:", value= ctx.guild.owner.mention, inline=False)
         embed.add_field(name="Created:", value= ctx.guild.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.add_field(name="Members:", value= len(ctx.guild.members), inline=False)
         embed.add_field(name="Humans:", value= len(list(filter(lambda m: not m.bot, ctx.guild.members))), inline=False)
         embed.add_field(name="Robots:", value= len(list(filter(lambda m: m.bot, ctx.guild.members))), inline=False)
         embed.add_field(name="Banned Users:", value= len(await ctx.guild.bans()), inline=False)
-        embed.add_field(name="Statuses:", value= f"🟢 {statuses[0]} 🟠 {statuses[1]} 🔴 {statuses[2]} ⚪ {statuses[3]}", inline=False)
+        embed.add_field(name="Statuses:", value= f"🟢 {statuses[0]} 🟠 {statuses[1]} 🔴 {statuses[2]} ⚫ {statuses[3]}", inline=False)
         embed.add_field(name="Text Channels:", value= len(ctx.guild.text_channels), inline=False)
         embed.add_field(name="Voice Channels:", value= len(ctx.guild.voice_channels), inline=False)
         embed.add_field(name="Categories:", value= len(ctx.guild.categories), inline=False)

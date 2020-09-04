@@ -106,7 +106,7 @@ class Logging(commands.Cog):
         embed.add_field(name="Voice Channels:", value= len(ctx.guild.voice_channels), inline=False)
         embed.add_field(name="Categories:", value= len(ctx.guild.categories), inline=False)
         embed.add_field(name="Roles:", value= len(ctx.guild.roles), inline=False)
-        embed.add_field(name="Invites:", value= len(ctx.guild.invites()), inline=False)
+        embed.add_field(name="Invites:", value= len(await ctx.guild.invites()), inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
         await ctx.send(embed=embed)
 

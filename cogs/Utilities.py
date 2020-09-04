@@ -101,7 +101,9 @@ class Utilities(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name=">Ping", value="This command returns the current ping of the bot in milliseconds.", inline=False)
-            embed.add_field(name=">Purge", value="Deletes a specified number of previous messages. \n Useage: >purge [# of Messages]", inline=False)
+            embed.add_field(name=">Purge", value="Deletes a specified number of previous messages. \n Useage: >purge [# of Messages] (Limit: 100 Messages)", inline=False)
+            embed.add_field(name=">Profile", value="Returns profile info on the user or a specified user.\n Useage: >profile (Optional:[User Mention])", inline=False)
+            embed.add_field(name=">Info", value="Returns key info about the current guild.", inline=False)
             embed.add_field(name=">Uptime", value="Returns the uptime of the bot!", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
@@ -132,6 +134,7 @@ class Utilities(commands.Cog):
             embed2.add_field(name=">Cuddle", value="Allows you to cuddle another user.\n Usage: >cuddle [User Mention]", inline=False)
             embed2.add_field(name=">Boop", value="Allows you to boop another user.\n Usage: >boop [User Mention]", inline=False)
             embed2.add_field(name=">Flop", value="Allows you to flop on another user.\n Usage: >flop [User Mention]", inline=False)
+            embed2.add_field(name=">Kiss", value="Allows you to kiss another user.\n Usage: >kiss [User Mention]", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)

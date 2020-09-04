@@ -99,7 +99,7 @@ class Logging(commands.Cog):
         embed.add_field(name="Created:", value= ctx.guild.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.add_field(name="Members:", value= len(ctx.guild.members), inline=False)
         embed.add_field(name="Humans:", value= len(list(filter(lambda m: not m.bot, ctx.guild.members))), inline=False)
-        embed.add_field(name="Robots:", value= len(list(filter(lambda m: m.bot, ctx.guild.members))), inline=False)
+        embed.add_field(name="Bots:", value= len(list(filter(lambda m: m.bot, ctx.guild.members))), inline=False)
         embed.add_field(name="Banned Users:", value= len(await ctx.guild.bans()), inline=False)
         embed.add_field(name="Statuses:", value= f"🟢 {statuses[0]} 🟠 {statuses[1]} 🔴 {statuses[2]} ⚫ {statuses[3]}", inline=False)
         embed.add_field(name="Text Channels:", value= len(ctx.guild.text_channels), inline=False)

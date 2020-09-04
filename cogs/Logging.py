@@ -102,7 +102,7 @@ class Logging(commands.Cog):
         embed.add_field(name="Robots:", value= len(list(filter(lambda m: m.bot, ctx.guild.members))))
         embed.add_field(name="Banned Users:", value= len(await ctx.guild.bans()))
         embed.add_field(name="Statuses:", value= f"🟢 {statuses[0]} 🟠 {statuses[1]} 🔴 {statuses[2]} ⚫ {statuses[3]}")
-        embed.add_field(name="Text Channels:", value= len(ctx.guild.text_channels)
+        embed.add_field(name="Text Channels:", value= len(ctx.guild.text_channels))
         embed.add_field(name="Voice Channels:", value= len(ctx.guild.voice_channels))
         embed.add_field(name="Categories:", value= len(ctx.guild.categories))
         embed.add_field(name="Roles:", value= len(ctx.guild.roles))

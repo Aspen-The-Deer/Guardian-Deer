@@ -72,25 +72,45 @@ class Logging(commands.Cog):
         embed.add_field(name="Activity:", value= f"{str(target.activity.type).split('.')[-1].title() if target.activity else 'Not doing anything right now.'} {target.activity.name if target.activity else ''}", inline=False)
         embed.add_field(name="Joined:", value= target.joined_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.add_field(name="Created:", value= target.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
-        embed.add_field(name="Boosting?:", value= bool(target.premium_since), inline=False)
+        embed.add_field(name="Boosting Status:", value= bool(target.premium_since), inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
 
         await ctx.send(embed=embed)
-'''
+
     @commands.command(name="serverinfo", aliases=["guildinfo", "si", "gi"])
     async def server_info(self, ctx):
-
-        await ctx.channel.send(embed=embed)
-
+        g = ctx.guild
         statuses = [len(list(filter(lambda m: str(m.status) == "online", ctx.guild.members))),
                     len(list(filter(lambda m: str(m.status) == "idle", ctx.guild.members))),
                     len(list(filter(lambda m: str(m.status) == "dnd", ctx.guild.members))),
                     len(list(filter(lambda m: str(m.status) == "offline", ctx.guild.members)))]
 
+        embed= discord.Embed(
+            colour=(0x629632),
+            title="Guild Info:"
+        )
 
+        embed.set_thumbnail(url=ctx.guild.icon_url)
+        embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        embed.add_field(name="Name:", value= g.name, inline=False)
+        embed.add_field(name="Id:", value= g.id, inline=False)
+        embed.add_field(name="Owner:", value= g.owner.mention, inline=False)
+        embed.add_field(name="Region:", value= g.region, inline=False)
+        embed.add_field(name="Created:", value= g.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
+        embed.add_field(name="Members:", value= len(g.members), inline=False)
+        embed.add_field(name="Humans:", value= len(list(filter(lambda m: not m.bot, g.members))), inline=False)
+        embed.add_field(name="Robots:", value= len(list(filter(lambda m: m.bot, g.members))), inline=False)
+        embed.add_field(name="Banned Users:", value= len(await ctx.guild.bans()), inline=False)
+        embed.add_field(name="Statuses:", value= f"🟢 {statuses[0]} 🟠 {statuses[1]} 🔴 {statuses[2]} ⚪ {statuses[3]}", inline=False)
+        embed.add_field(name="Text Channels:", value= len(g.text_channels), inline=False)
+        embed.add_field(name="Voice Channels:", value= len(g.voice_channels), inline=False)
+        embed.add_field(name="Categories:", value= len(g.categories), inline=False)
+        embed.add_field(name="Roles:", value= len(g.roles), inline=False)
+        embed.add_field(name="Invites:", value= len(g.invites()), inline=False)
+        embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
         await ctx.send(embed=embed)
-'''
+
 
 def setup(client):
     client.add_cog(Logging(client))

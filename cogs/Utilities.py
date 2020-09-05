@@ -178,7 +178,7 @@ class Utilities(commands.Cog):
             embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed2.add_field(name=">What can we log?", value="As of the moment, The Guardian is able to log User Joins, and Leaves as well as Message Edits and Deletions.", inline=False)
             embed2.add_field(name="Setup:", value="Simply use >clc or >logs to create a blank logging channe.\nIt is essential that the channel name remains as 'logs' for the bot to be able to log server activity there.\nPlease also make sure that the bot has the required permissions and access to the 'logs' channel.", inline=False)
-            embed2.add_field(name="Please Note:", value="The channel created will be acessible by all members of the guild, hence specific permissions to restrict access will need to be done manually", inline=False)
+            embed2.add_field(name="Please Note:", value="The channel created will be acessible by all members of the guild, hence specific permissions to restrict access will need to be done manually.", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.send(embed=embed2)
             return

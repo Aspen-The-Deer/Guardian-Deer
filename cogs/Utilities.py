@@ -44,14 +44,14 @@ class Utilities(commands.Cog):
     async def changelog(self, ctx):
         embed= discord.Embed(
             colour=(0x629632),
-            title="P.A.R.R.O.T. V.1.3.1_1/09/20 (4f7704b)"
+            title="P.A.R.R.O.T. V.1.4.1_05/09/20 (4deb92b)"
         )
 
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-        embed.add_field(name="What's New?", value="Added: Gaming commands >Roll and >Coinflip\nFurther additions to the Social Extension\n>Uptime so you can see how long it has been since the last restart", inline=False)
-        embed.add_field(name="Changes:", value="Added >Help Gaming to the Utilities Extension.", inline=False)
-        embed.add_field(name="Removed:", value="Nothing...", inline=False)
-        embed.add_field(name="What's Next?", value="More Social & Gaming Related Commands.\nLogging for deleted and edited messages.\n>Suggestions (DM's only)\nRandomised time-based profile statuses!\n>FAQ command alongside >Ask", inline=False)
+        embed.add_field(name="What's New?", value="Server Logging Features in >Help Logging and >Help Moderation", inline=False)
+        embed.add_field(name="Changes:", value="Added >Help Logging to the Utilities Extension.", inline=False)
+        embed.add_field(name="Removed:", value="Nothing...\nStill nothing...", inline=False)
+        embed.add_field(name="What's Next?", value="More Social & Gaming Related Commands.\n>Suggestions (DM's only)\n>FAQ command alongside >Ask\nStarboards! Messages with at least 3 '⭐' reactions will be added to a starboard in the respected guild!", inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
         await ctx.send(embed=embed)
@@ -169,6 +169,21 @@ class Utilities(commands.Cog):
             await ctx.send(embed=embed2)
             return
 
+         elif module == "Logging" or module == "logging":
+            embed2= discord.Embed(
+                colour=(0x629632),
+                title="Server Logging Info:"
+            )
+
+            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed2.add_field(name=">What can we log?", value="As of the moment, The Guardian is able to log User Joins, and Leaves as well as Message Edits and Deletions.", inline=False)
+            embed2.add_field(name="Setup:", value="Simply use >clc or >logs to create a blank logging channe.\nIt is essential that the channel name remains as 'logs' for the bot to be able to log server activity there.\nPlease also make sure that the bot has the required permissions and access to the 'logs' channel.", inline=False)
+            embed.add_field(name="Please Note:", value="The channel created will be acessible by all members of the guild, hence specific permissions to restrict access will need to be done manually", inline=False)
+            embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+
+            await ctx.send(embed=embed2)
+            return
+
         else:
             embed2= discord.Embed(
                 colour=(0x629632),
@@ -194,6 +209,7 @@ class Utilities(commands.Cog):
             embed.add_field(name=">Help Moderation", value="This command returns help info for the Guardian's Moderation commands.", inline=False)
             embed.add_field(name=">Help Social", value="This command returns help info for the Guardian's Social commands.", inline=False)
             embed.add_field(name=">Help Gaming", value="This command returns help info for the Guardian's Gaming commands.", inline=False)
+            embed.add_field(name=">Help Logging", value="This command returns help info for the Guardian's Server Logging system.", inline=False)
             embed.add_field(name=">Help Dev", value="This command returns help info for the Guardian's Developer commands.\nNote: These commands are simply related to information about the Development process of Guardian Deer.", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 

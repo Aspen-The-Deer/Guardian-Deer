@@ -55,7 +55,7 @@ class Logging(commands.Cog):
             await logger.send(embed=embed)
 
     @commands.Cog.listener()
-    async def on_member_join(self, ctx, member: discord.User=None):
+    async def on_member_join(self, ctx, member):
         menti = member.mention
         logger = discord.utils.get(ctx.guild.channels, name='logs')
         embed= discord.Embed(

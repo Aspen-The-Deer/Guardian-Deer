@@ -1,6 +1,4 @@
 import discord
-import json
-import requests
 import random
 import time
 from discord.ext import commands

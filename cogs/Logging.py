@@ -57,8 +57,7 @@ class Logging(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, ctx, member: discord.User=None):
         menti = member.mention
-        logger = discord.utils.get(message.guild.channels, name='logs')
-        server = ctx.guild.name
+        logger = discord.utils.get(ctx.guild.channels, name='logs')
         embed= discord.Embed(
             colour=(0x629632),
             title = "Message Deleted:"

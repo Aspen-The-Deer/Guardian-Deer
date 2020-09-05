@@ -70,7 +70,7 @@ class Logging(commands.Cog):
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
         await logger.send(embed=embed)
 
-            @commands.Cog.listener()
+    @commands.Cog.listener()
     async def on_member_remove(self, member):
         menti = member.mention
         logger = discord.utils.get(member.guild.channels, name='logs')

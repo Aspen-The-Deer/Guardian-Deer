@@ -169,7 +169,7 @@ class Utilities(commands.Cog):
             await ctx.send(embed=embed2)
             return
 
-         elif module == "Logging" or module == "logging":
+        elif module == "Logging" or module == "logging":
             embed2= discord.Embed(
                 colour=(0x629632),
                 title="Server Logging Info:"

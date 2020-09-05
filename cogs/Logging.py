@@ -17,7 +17,7 @@ class Logging(commands.Cog):
         print('Logging.py')
 
     @commands.command(aliases=['Logging Setup', 'Logging', 'logs', 'Logs', 'clc'])
-    async def logging(self, ctx, guild):
+    async def logging(self, ctx):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
         if logger != None:
             embed= discord.Embed(
@@ -29,7 +29,7 @@ class Logging(commands.Cog):
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await logger.send(embed=embed)
         else:
-            await guild.create_text_channel('logs')
+            await ctx.guild.create_text_channel('logs')
             logger2 = discord.utils.get(ctx.guild.channels, name='logs')
             embed= discord.Embed(
                 colour=(0x629632)

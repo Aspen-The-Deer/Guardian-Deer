@@ -54,7 +54,26 @@ class Logging(commands.Cog):
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await logger.send(embed=embed)
 
-    @commands.command(aliases=["profile", "ui", "mi", "userinfo", "Profile"])
+    @commands.Cog.listener()
+    async def on_member_join(self, ctx, member: discord.User=None):
+        menti = member.mention
+        logger = discord.utils.get(message.guild.channels, name='logs')
+        server = ctx.guild.name
+        embed= discord.Embed(
+            colour=(0x629632),
+            title = "Message Deleted:"
+        )
+
+        embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        embed.add_field(name = ('User Joined:'), value = (menti)+(" has joined the server!"), inline=False)
+        embed.add_field(name="Id:", value= member.id, inline=False)
+        embed.add_field(name="Joined:", value= member.joined_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
+        embed.add_field(name="Created:", value= member.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
+        embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+        await logger.send(embed=embed)
+
+
+    @commands.command(aliases=["profile", "ui", "mi", "Profile"])
     async def user_info(self, ctx, target: discord.User=None):
         target = target or ctx.author
         menti = target.mention

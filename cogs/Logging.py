@@ -16,6 +16,30 @@ class Logging(commands.Cog):
         time.sleep(0.2)
         print('Logging.py')
 
+    @commands.command(aliases=['Logging Setup', 'Logging', 'logs', 'Logs', 'clc'])
+    async def logging(self, ctx, guild):
+        logger = discord.utils.get(ctx.guild.channels, name='logs')
+        if logger != None:
+            embed= discord.Embed(
+                colour=(0x629632)
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name = ('A suitable logging channel has already been created..'), value = ('The channel can be found at:') + (logger.mention), inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            await logger.send(embed=embed)
+        else:
+            await guild.create_text_channel('logs')
+            logger2 = discord.utils.get(ctx.guild.channels, name='logs')
+            embed= discord.Embed(
+                colour=(0x629632)
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name = ('Logging channel created!'), value = ('The channel can be found at:') + (logger2.mention), inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            await logger.send(embed=embed)
+
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         member = after.author.mention
@@ -79,7 +103,7 @@ class Logging(commands.Cog):
         )
 
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-        embed.add_field(name = ('User Left'), value = (menti)+(" has joined the server!"), inline=False)
+        embed.add_field(name = ('User Exit:'), value = (menti)+(" has left the server..."), inline=False)
         embed.add_field(name="Id:", value= member.id, inline=False)
         embed.add_field(name="Joined:", value= member.joined_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.add_field(name="Created:", value= member.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)

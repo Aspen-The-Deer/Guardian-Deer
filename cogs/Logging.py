@@ -17,6 +17,7 @@ class Logging(commands.Cog):
         print('Logging.py')
 
     @commands.command(aliases=['Logging Setup', 'Logging', 'logs', 'Logs', 'clc'])
+    @commands.has_permissions(manage_channels=True)
     async def logging(self, ctx):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
         if logger != None:

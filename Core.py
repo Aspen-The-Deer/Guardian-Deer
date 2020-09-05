@@ -34,6 +34,7 @@ if __name__ =='__main__':
         client.load_extension(Extension)
 
 @client.command(aliases=['Ping'])
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def ping(ctx):
 # client.latency is given in seconds, hence it needs to be multiplied by 1000 to display in ms
     ping = round(client.latency * 1000)

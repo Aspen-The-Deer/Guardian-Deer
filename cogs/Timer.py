@@ -17,6 +17,7 @@ class Timer(commands.Cog):
         print('Uptime.py')
 
     @commands.command(pass_context=True)
+    @commands.cooldown(5, 3600, commands.BucketType.user)
     async def uptime(self, ctx):
         current_time = time.time()
         difference = int(round(current_time - start_time))

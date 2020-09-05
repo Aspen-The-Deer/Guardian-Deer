@@ -119,6 +119,7 @@ class Utilities(commands.Cog):
             embed2.add_field(name=">Ban", value="The Guardian will ban the specified user for a specified reason.\n Usage: >ban [User Mention] [Ban reason]", inline=False)
             embed2.add_field(name=">Kick", value="The Guardian will kick the specified user for a specified reason.\n Usage: >kick [User Mention] [Kick reason]", inline=False)
             embed2.add_field(name=">Unban", value="The Guardian will unban the desired user.\n Useage: >unban [User ID]", inline=False)
+            embed2.add_field(name=">CLC", value="The Guardian will create a logging channel for server activity, such as: Joins, Leaves, Edits and Deletions.\n Useage: >clc or >logs", inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.send(embed=embed2)

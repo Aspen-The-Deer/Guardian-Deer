@@ -22,6 +22,7 @@ class Punishments(commands.Cog):
     @commands.command(aliases =["Ban", "b", "B"])
     @commands.has_permissions(ban_members=True)
     async def ban (self, ctx, member:discord.User=None, reason:str=None):
+        logger = discord.utils.get(ctx.guild.channels, name='logs')
         server = ctx.guild.name
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
@@ -50,6 +51,10 @@ class Punishments(commands.Cog):
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.channel.send(embed=embed)
+            try:
+                await logger.send(embed=embed)
+            except AttributeError:
+                print("No logging channel found in "+guild+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
                 title="You have been Banned:"
@@ -76,6 +81,10 @@ class Punishments(commands.Cog):
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.channel.send(embed=embed)
+            try:
+                await logger.send(embed=embed)
+            except AttributeError:
+                print("No logging channel found in "+guild+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
                 title="You have been Banned:"
@@ -109,6 +118,7 @@ class Punishments(commands.Cog):
     @commands.command(aliases =["Kick", "k", "K"])
     @commands.has_permissions(kick_members=True)
     async def kick (self, ctx, member:discord.User=None,  reason:str=None):
+        logger = discord.utils.get(ctx.guild.channels, name='logs')
         server = ctx.guild.name
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
@@ -122,6 +132,10 @@ class Punishments(commands.Cog):
             embed.add_field(name="This happened because:", value="You cannot kick yourself.\nNo user was specified to kick.", inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.channel.send(embed=embed)
+            try:
+                await logger.send(embed=embed)
+            except AttributeError:
+                print("No logging channel found in "+guild+", Ignoring Event.")
             return
         elif reason != None:
             await ctx.guild.ban(member, reason=reason)
@@ -163,6 +177,10 @@ class Punishments(commands.Cog):
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
             await ctx.channel.send(embed=embed)
+            try:
+                await logger.send(embed=embed)
+            except AttributeError:
+                print("No logging channel found in "+guild+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
                 title="You have been Kicked:"
@@ -195,6 +213,7 @@ class Punishments(commands.Cog):
     @commands.has_permissions(ban_members=True)
     @commands.guild_only()
     async def unban(self, ctx, *, userId):
+        logger = discord.utils.get(ctx.guild.channels, name='logs')
         mod = ctx.message.author.mention
         user = discord.Object(id=userId)
         await ctx.guild.unban(user)
@@ -207,6 +226,10 @@ class Punishments(commands.Cog):
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
 
         await ctx.channel.send(embed=embed)
+        try:
+                await logger.send(embed=embed)
+            except AttributeError:
+                print("No logging channel found in "+guild+", Ignoring Event.")
         return
 
     @unban.error

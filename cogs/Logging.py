@@ -60,7 +60,7 @@ class Logging(commands.Cog):
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         member = after.author.mention
-        guild = after.guild.name
+        guild = after.guild
         logger = discord.utils.get(after.guild.channels, name='logs')
         location = after.channel.mention
         if not after.author.bot:
@@ -84,7 +84,7 @@ class Logging(commands.Cog):
     @commands.Cog.listener()
     async def on_message_delete(self, message):
         member = message.author.mention
-        guild = message.guild.name
+        guild = message.guild
         logger = discord.utils.get(message.guild.channels, name='logs')
         location = message.channel.mention
         if not message.author.bot:
@@ -106,7 +106,7 @@ class Logging(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         menti = member.mention
-        guild = member.guild.name
+        guild = member.guild
         logger = discord.utils.get(member.guild.channels, name='logs')
         embed= discord.Embed(
             colour=(0x629632)
@@ -126,7 +126,7 @@ class Logging(commands.Cog):
     @commands.Cog.listener()
     async def on_member_remove(self, member):
         menti = member.mention
-        guild = member.guild.name
+        guild = member.guild
         logger = discord.utils.get(member.guild.channels, name='logs')
         embed= discord.Embed(
             colour=(0x629632)

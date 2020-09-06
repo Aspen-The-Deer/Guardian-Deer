@@ -23,7 +23,7 @@ class Punishments(commands.Cog):
     @commands.has_permissions(ban_members=True)
     async def ban (self, ctx, member:discord.User=None, reason:str=None):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
-        server = ctx.guild.name
+        server = ctx.message.guild
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
             embed= discord.Embed(
@@ -119,7 +119,7 @@ class Punishments(commands.Cog):
     @commands.has_permissions(kick_members=True)
     async def kick (self, ctx, member:discord.User=None,  reason:str=None):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
-        server = ctx.guild.name
+        server = ctx.message.guild
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
             embed= discord.Embed(
@@ -214,7 +214,7 @@ class Punishments(commands.Cog):
     @commands.guild_only()
     async def unban(self, ctx, *, userId):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
-        mod = ctx.message.author.mention#
+        mod = ctx.message.author.mention
         server = ctx.message.guild
         user = discord.Object(id=userId)
         await ctx.guild.unban(user)

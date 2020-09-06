@@ -7,9 +7,10 @@ import json
 import datetime
 from discord.ext import commands
 
-#mem = None
-#res = "No Reason Given"
-#mo = None
+mem = None
+res = "No Reason Given"
+mo = None
+ser = None
 
 class Punishments(commands.Cog):
 
@@ -26,6 +27,10 @@ class Punishments(commands.Cog):
     @commands.command(aliases =["Ban", "b", "B"])
     @commands.has_permissions(ban_members=True)
     async def ban (self, ctx, member:discord.User=None, *, reason: str):
+        global mem, mo, ser
+        mem = member
+        mo = ctx.message.author.mention
+        ser = ctx.guild.name
         server = ctx.guild.name
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
@@ -69,6 +74,7 @@ class Punishments(commands.Cog):
 
     @ban.error
     async def ban_error(self, ctx, error):
+        global mem, mo, ser
         if isinstance(error, commands.MissingRequiredArgument):
             embed4= discord.Embed(
                 colour=(0x629632),
@@ -76,7 +82,7 @@ class Punishments(commands.Cog):
             )
 
             embed4.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed4.add_field(name="Please enter a reason for the punishment."+(member), value="Error: #002", inline=False)
+            embed4.add_field(name="Please enter a reason for the punishment."+(mem), value="Error: #002", inline=False)
             embed4.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
             await ctx.send(embed=embed4)   
             return

@@ -60,6 +60,7 @@ class Logging(commands.Cog):
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         member = after.author.mention
+        guild = ctx.guild.name
         logger = discord.utils.get(after.guild.channels, name='logs')
         location = after.channel.mention
         if not after.author.bot:
@@ -78,11 +79,12 @@ class Logging(commands.Cog):
                 try:
                     await logger.send(embed=embed)
                 except AttributeError:
-                    print("No logging channel found, Ignoring Event.")
+                    print("No logging channel found in "+guild+", Ignoring Event.")
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
         member = message.author.mention
+        guild = ctx.guild.name
         logger = discord.utils.get(message.guild.channels, name='logs')
         location = message.channel.mention
         if not message.author.bot:
@@ -99,11 +101,12 @@ class Logging(commands.Cog):
             try:
                 await logger.send(embed=embed)
             except AttributeError:
-                print("No logging channel found, Ignoring Event.")
+                print("No logging channel found in "+guild+", Ignoring Event.")
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
         menti = member.mention
+        guild = ctx.guild.name
         logger = discord.utils.get(member.guild.channels, name='logs')
         embed= discord.Embed(
             colour=(0x629632)
@@ -118,10 +121,12 @@ class Logging(commands.Cog):
         try:
             await logger.send(embed=embed)
         except AttributeError:
-            print("No logging channel found, Ignoring Event.")
+            print("No logging channel found in "+guild+", Ignoring Event.")
+
     @commands.Cog.listener()
     async def on_member_remove(self, member):
         menti = member.mention
+        guild = ctx.guild.name
         logger = discord.utils.get(member.guild.channels, name='logs')
         embed= discord.Embed(
             colour=(0x629632)
@@ -136,7 +141,7 @@ class Logging(commands.Cog):
         try:
             await logger.send(embed=embed)
         except AttributeError:
-            print("No logging channel found, Ignoring Event.")
+            print("No logging channel found in "+guild+", Ignoring Event.")
 
     @commands.command(aliases=["profile", "ui", "mi", "Profile"])
     async def user_info(self, ctx, target: discord.User=None):

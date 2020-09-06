@@ -54,7 +54,7 @@ class Punishments(commands.Cog):
             try:
                 await logger.send(embed=embed)
             except AttributeError:
-                print("No logging channel found in "+guild+", Ignoring Event.")
+                print("No logging channel found in "+server+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
                 title="You have been Banned:"
@@ -84,7 +84,7 @@ class Punishments(commands.Cog):
             try:
                 await logger.send(embed=embed)
             except AttributeError:
-                print("No logging channel found in "+guild+", Ignoring Event.")
+                print("No logging channel found in "+server+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
                 title="You have been Banned:"
@@ -135,7 +135,7 @@ class Punishments(commands.Cog):
             try:
                 await logger.send(embed=embed)
             except AttributeError:
-                print("No logging channel found in "+guild+", Ignoring Event.")
+                print("No logging channel found in "+server+", Ignoring Event.")
             return
         elif reason != None:
             await ctx.guild.ban(member, reason=reason)
@@ -180,7 +180,7 @@ class Punishments(commands.Cog):
             try:
                 await logger.send(embed=embed)
             except AttributeError:
-                print("No logging channel found in "+guild+", Ignoring Event.")
+                print("No logging channel found in "+server+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
                 title="You have been Kicked:"
@@ -214,7 +214,8 @@ class Punishments(commands.Cog):
     @commands.guild_only()
     async def unban(self, ctx, *, userId):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
-        mod = ctx.message.author.mention
+        mod = ctx.message.author.mention#
+        server = ctx.message.guild
         user = discord.Object(id=userId)
         await ctx.guild.unban(user)
         embed= discord.Embed(
@@ -229,7 +230,7 @@ class Punishments(commands.Cog):
         try:
             await logger.send(embed=embed)
         except AttributeError:
-            print("No logging channel found in "+guild+", Ignoring Event.")
+            print("No logging channel found in "+server+", Ignoring Event.")
         return
 
     @unban.error

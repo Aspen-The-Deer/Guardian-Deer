@@ -7,11 +7,6 @@ import json
 import datetime
 from discord.ext import commands
 
-mem = None
-res = "No Reason Given"
-mo = None
-ser = None
-
 class Punishments(commands.Cog):
 
     def __init__(self, client):
@@ -26,11 +21,7 @@ class Punishments(commands.Cog):
 
     @commands.command(aliases =["Ban", "b", "B"])
     @commands.has_permissions(ban_members=True)
-    async def ban (self, ctx, member:discord.User=None, *, reason: str):
-        global mem, mo, ser
-        mem = member
-        mo = ctx.message.author.mention
-        ser = ctx.guild.name
+    async def ban (self, ctx, member:discord.User=None, reason:str=None):
         server = ctx.guild.name
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
@@ -70,11 +61,37 @@ class Punishments(commands.Cog):
             embed2.add_field(name="You were Banned By:", value=str(mod), inline=False)
             embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await member.send(embed=embed2)
+        elif reason == None:
+            reason = "No Reason Given"
+            await ctx.guild.ban(member, reason=reason)
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="User Banned:"
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="User:", value=str(member), inline=False)
+            embed.add_field(name="Reason:", value=str(reason), inline=False)
+            embed.add_field(name="Banned By:", value=str(mod), inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+
+            await ctx.channel.send(embed=embed)
+            embed2= discord.Embed(
+                colour=(0x629632),
+                title="You have been Banned:"
+            )
+
+            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed2.add_field(name="You have been banned from:", value=str(server), inline=False)
+            embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
+            embed2.add_field(name="You were Banned By:", value=str(mod), inline=False)
+            embed2.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            await member.send(embed=embed2)
+
 
 
     @ban.error
     async def ban_error(self, ctx, error):
-        global mem, mo, ser
         if isinstance(error, commands.MissingRequiredArgument):
             embed4= discord.Embed(
                 colour=(0x629632),
@@ -82,7 +99,7 @@ class Punishments(commands.Cog):
             )
 
             embed4.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed4.add_field(name="Please enter a reason for the punishment."+(mem), value="Error: #002", inline=False)
+            embed4.add_field(name="Please enter a reason for the punishment.", value="Error: #002", inline=False)
             embed4.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
             await ctx.send(embed=embed4)   
             return
@@ -102,7 +119,7 @@ class Punishments(commands.Cog):
 
     @commands.command(aliases =["Kick", "k", "K"])
     @commands.has_permissions(kick_members=True)
-    async def kick (self, ctx, member:discord.User=None, *, reason: str):
+    async def kick (self, ctx, member:discord.User=None,  reason:str=None):
         server = ctx.guild.name
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
@@ -147,7 +164,15 @@ class Punishments(commands.Cog):
     @kick.error
     async def kick_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-           print('brrr') 
+            embed4= discord.Embed(
+                colour=(0x629632),
+                title="An error has occured..."
+            )
+
+            embed4.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed4.add_field(name="Please enter a reason for the punishment.", value="Error: #002", inline=False)
+            embed4.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            await ctx.send(embed=embed4)   
         elif isinstance(error, commands.MissingPermissions):
             embed3= discord.Embed(
                 colour=(0x629632),

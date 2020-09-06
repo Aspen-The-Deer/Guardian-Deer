@@ -16,7 +16,7 @@ class Logging(commands.Cog):
         time.sleep(0.2)
         print('Logging.py')
 
-    @commands.command(aliases=['Logging Setup', 'Logging', 'logs', 'Logs', 'clc'])
+    @commands.command(aliases=['Logging Setup', 'Logging', 'clc'])
     @commands.has_permissions(manage_channels=True)
     async def logging(self, ctx):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
@@ -40,6 +40,22 @@ class Logging(commands.Cog):
             embed.add_field(name = ('Logging channel created!'), value = ('The channel can be found at:') + (logger2.mention), inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.channel.send(embed=embed)
+
+    @logging.error
+    async def logging_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            embed3= discord.Embed(
+                colour=(0x629632),
+                title="Insufficient Permissions..."
+            )
+
+            embed3.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed3.add_field(name="You are missing the permissions required to use this command.", value="Error: #001", inline=False)
+            embed3.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            await ctx.send(embed=embed3)   
+            return
+        else:
+            print(error)
 
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
@@ -167,6 +183,21 @@ class Logging(commands.Cog):
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
         await ctx.send(embed=embed)
 
+    @on_message_edit.error
+    async def edit_error(self, ctx, error):
+        print("No Logging Channel Present, Ignoring Action")
+
+    @on_message_delete.error
+    async def delete_error(self, ctx, error):
+        print("No Logging Channel Present, Ignoring Action")
+
+    @on_member_join.error
+    async def join_error(self, ctx, error):
+        print("No Logging Channel Present, Ignoring Action")
+
+    @on_member_remove.error
+    async def leave_error(self, ctx, error):
+        print("No Logging Channel Present, Ignoring Action")
 
 def setup(client):
     client.add_cog(Logging(client))

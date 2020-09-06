@@ -53,7 +53,7 @@ class Punishments(commands.Cog):
             await ctx.channel.send(embed=embed)
             try:
                 await logger.send(embed=embed)
-            except AttributeError or TypeError:
+            except AttributeError:
                 print("No logging channel found in "+server+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
@@ -83,7 +83,7 @@ class Punishments(commands.Cog):
             await ctx.channel.send(embed=embed)
             try:
                 await logger.send(embed=embed)
-            except AttributeError or TypeError:
+            except AttributeError:
                 print("No logging channel found in "+server+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
@@ -134,7 +134,7 @@ class Punishments(commands.Cog):
             await ctx.channel.send(embed=embed)
             try:
                 await logger.send(embed=embed)
-            except AttributeError or TypeError:
+            except AttributeError:
                 print("No logging channel found in "+server+", Ignoring Event.")
             return
         elif reason != None:
@@ -179,7 +179,7 @@ class Punishments(commands.Cog):
             await ctx.channel.send(embed=embed)
             try:
                 await logger.send(embed=embed)
-            except AttributeError or TypeError:
+            except AttributeError:
                 print("No logging channel found in "+server+", Ignoring Event.")
             embed2= discord.Embed(
                 colour=(0x629632),
@@ -229,7 +229,7 @@ class Punishments(commands.Cog):
         await ctx.channel.send(embed=embed)
         try:
             await logger.send(embed=embed)
-        except AttributeError or TypeError:
+        except AttributeError:
             print("No logging channel found in "+server+", Ignoring Event.")
         return
 

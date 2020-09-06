@@ -75,7 +75,10 @@ class Logging(commands.Cog):
                 embed.add_field(name = ('After:'), value = ('"')+(after.content)+('"'), inline=False)
                 embed.add_field(name = ('In:'), value = (location), inline=False)
                 embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
-                await logger.send(embed=embed)
+                try:
+                    await logger.send(embed=embed)
+                except AttributeError:
+                    print("No logging channel found, Ignoring Event.")
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
@@ -93,7 +96,10 @@ class Logging(commands.Cog):
             embed.add_field(name = ('Message Content:'), value = ('"')+(message.content)+('"'), inline=False)
             embed.add_field(name = ('In:'), value = (location), inline=False)
             embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
-            await logger.send(embed=embed)
+            try:
+                await logger.send(embed=embed)
+            except AttributeError:
+                print("No logging channel found, Ignoring Event.")
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
@@ -109,8 +115,10 @@ class Logging(commands.Cog):
         embed.add_field(name="Joined:", value= member.joined_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.add_field(name="Created:", value= member.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
-        await logger.send(embed=embed)
-
+        try:
+            await logger.send(embed=embed)
+        except AttributeError:
+            print("No logging channel found, Ignoring Event.")
     @commands.Cog.listener()
     async def on_member_remove(self, member):
         menti = member.mention
@@ -125,7 +133,10 @@ class Logging(commands.Cog):
         embed.add_field(name="Joined:", value= member.joined_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.add_field(name="Created:", value= member.created_at.strftime("%d/%m/%Y %H:%M:%S"), inline=False)
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
-        await logger.send(embed=embed)
+        try:
+            await logger.send(embed=embed)
+        except AttributeError:
+            print("No logging channel found, Ignoring Event.")
 
     @commands.command(aliases=["profile", "ui", "mi", "Profile"])
     async def user_info(self, ctx, target: discord.User=None):
@@ -183,21 +194,6 @@ class Logging(commands.Cog):
         embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
         await ctx.send(embed=embed)
 
-    @on_message_edit.error
-    async def edit_error(self, ctx, error):
-        print("No Logging Channel Present, Ignoring Action")
-
-    @on_message_delete.error
-    async def delete_error(self, ctx, error):
-        print("No Logging Channel Present, Ignoring Action")
-
-    @on_member_join.error
-    async def join_error(self, ctx, error):
-        print("No Logging Channel Present, Ignoring Action")
-
-    @on_member_remove.error
-    async def leave_error(self, ctx, error):
-        print("No Logging Channel Present, Ignoring Action")
 
 def setup(client):
     client.add_cog(Logging(client))

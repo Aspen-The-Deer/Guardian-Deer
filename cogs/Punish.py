@@ -7,6 +7,10 @@ import json
 import datetime
 from discord.ext import commands
 
+#mem = None
+#res = "No Reason Given"
+#mo = None
+
 class Punishments(commands.Cog):
 
     def __init__(self, client):
@@ -25,7 +29,15 @@ class Punishments(commands.Cog):
         server = ctx.guild.name
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
-            embed = discord.Embed(title="The Ban Hammer", description=("You use the ban hammer, but it has no effect!"), color=(0x629632))
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="User Cannot Banned:"
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="User:", value=str(member), inline=False)
+            embed.add_field(name="This happened because:", value="You cannot ban yourself.\nNo user was specified to ban.", inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
             await ctx.channel.send(embed=embed)
             return
         elif reason != None:
@@ -64,7 +76,7 @@ class Punishments(commands.Cog):
             )
 
             embed4.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed4.add_field(name="Please enter a reason for the punishment.", value="Error: #002", inline=False)
+            embed4.add_field(name="Please enter a reason for the punishment."+(member), value="Error: #002", inline=False)
             embed4.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
             await ctx.send(embed=embed4)   
             return
@@ -88,8 +100,16 @@ class Punishments(commands.Cog):
         server = ctx.guild.name
         mod = ctx.message.author.mention
         if member == None or member == ctx.message.author:
-            embed3 = discord.Embed(title="The Cold Boot", description=("You try to kick yourself! And... Ouch... That looked like it hurt..."), color=(0x629632))
-            await ctx.channel.send(embed=embed3)
+            embed= discord.Embed(
+                colour=(0x629632),
+                title="User Cannot Kicked:"
+            )
+
+            embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+            embed.add_field(name="User:", value=str(member), inline=False)
+            embed.add_field(name="This happened because:", value="You cannot kick yourself.\nNo user was specified to kick.", inline=False)
+            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            await ctx.channel.send(embed=embed)
             return
         elif reason != None:
             await ctx.guild.ban(member, reason=reason)
@@ -121,15 +141,7 @@ class Punishments(commands.Cog):
     @kick.error
     async def kick_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            embed4= discord.Embed(
-                colour=(0x629632),
-                title="An error has occured..."
-            )
-
-            embed4.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed4.add_field(name="Please enter a reason for the punishment.", value="Error: #002", inline=False)
-            embed4.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
-            await ctx.send(embed=embed4)   
+            
         elif isinstance(error, commands.MissingPermissions):
             embed3= discord.Embed(
                 colour=(0x629632),

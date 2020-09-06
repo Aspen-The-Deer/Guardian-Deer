@@ -141,7 +141,7 @@ class Punishments(commands.Cog):
     @kick.error
     async def kick_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            
+           print('brrr') 
         elif isinstance(error, commands.MissingPermissions):
             embed3= discord.Embed(
                 colour=(0x629632),

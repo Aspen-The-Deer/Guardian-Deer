@@ -227,9 +227,9 @@ class Punishments(commands.Cog):
 
         await ctx.channel.send(embed=embed)
         try:
-                await logger.send(embed=embed)
-            except AttributeError:
-                print("No logging channel found in "+guild+", Ignoring Event.")
+            await logger.send(embed=embed)
+        except AttributeError:
+            print("No logging channel found in "+guild+", Ignoring Event.")
         return
 
     @unban.error

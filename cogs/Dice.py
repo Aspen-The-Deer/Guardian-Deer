@@ -41,7 +41,7 @@ class Dice(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name = (dice), value = (responses))
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.channel.send(embed=embed)
         except ValueError:
             dice_num = message[:2]
@@ -69,7 +69,7 @@ class Dice(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name = (dice), value = (responses))
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.channel.send(embed=embed)
 
     @roll.error
@@ -82,7 +82,7 @@ class Dice(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="Numbers Entered are Too Large!", value="Error: #004", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
             return  
 
@@ -96,7 +96,7 @@ class Dice(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name = ('Coin Flip!'), value = ("The Coin landed on it's side!\nThe chances of this happening are 1 in 6000!"))
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.channel.send(embed=embed)
 
         elif int(coin) % 2 == 0:
@@ -106,7 +106,7 @@ class Dice(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name = ('Coin Flip!'), value = ('It was Heads!'))
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.channel.send(embed=embed)
         else:
             embed= discord.Embed(
@@ -115,7 +115,7 @@ class Dice(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name = ('Coin Flip!'), value = ('It was Tails!'))
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.channel.send(embed=embed)
 
 

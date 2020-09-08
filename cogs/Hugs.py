@@ -34,7 +34,7 @@ class Hugs(commands.Cog):
             json_images_parse = json_images[0]
             embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Hugs!", value=(choice), inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
         elif len(ctx.message.mentions) > 1:
             embed= discord.Embed(
@@ -44,7 +44,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="You may only hug one person at a time!", value="Error: #003", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
             return
         
@@ -67,7 +67,7 @@ class Hugs(commands.Cog):
             json_images_parse = json_images[0]
             embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Cuddles!", value=(choice), inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
         elif len(ctx.message.mentions) > 1:
             embed= discord.Embed(
@@ -77,7 +77,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="You may only Cuddle one person at a time!", value="Error: #003", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
             return
 
@@ -100,7 +100,7 @@ class Hugs(commands.Cog):
             json_images_parse = json_images[0]
             embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Boops!", value=(choice), inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
         elif len(ctx.message.mentions) > 1:
             embed= discord.Embed(
@@ -110,7 +110,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="You may only boop one person at a time!", value="Error: #003", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
             return
 
@@ -132,7 +132,7 @@ class Hugs(commands.Cog):
             json_images_parse = json_images[0]
             embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Flop!", value=(choice), inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
         elif len(ctx.message.mentions) > 1:
             embed= discord.Embed(
@@ -142,7 +142,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="You may only flop on one person at a time!", value="Error: #003", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
             return
 
@@ -164,7 +164,7 @@ class Hugs(commands.Cog):
             json_images_parse = json_images[0]
             embed.set_image(url=json_images_parse["shortURL"])
             embed.add_field(name="Kiss!", value=(choice), inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
         elif len(ctx.message.mentions) > 1:
             embed= discord.Embed(
@@ -174,7 +174,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="You may only kiss one person at a time!", value="Error: #003", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!") 
             await ctx.send(embed=embed)   
             return
 
@@ -192,7 +192,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!") 
             await ctx.send(embed=embed)   
             return
 
@@ -208,7 +208,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!") 
             await ctx.send(embed=embed)   
             return
 
@@ -224,7 +224,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
             return
 
@@ -240,7 +240,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!") 
             await ctx.send(embed=embed)   
             return
 
@@ -256,7 +256,7 @@ class Hugs(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="This command requires you to mention another user!", value="Error: #002", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™") 
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)   
             return
 

@@ -24,7 +24,7 @@ class Shredder(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="An error has occurred...", value="You may only delete a maximum of 100 messages at a time!\n Error: #008", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.send(embed=embed)
         else:
             await ctx.channel.purge(limit=amount + 1)
@@ -34,7 +34,7 @@ class Shredder(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="Shredder!", value="Shredded "+str(amount)+" messages!", inline=False)
-            embed.set_footer(text="More Features Coming Soon! We're still in Alpha™")
+            embed.set_footer(text="Type '>help' for help options!")
             await ctx.channel.send(embed=embed)
 
 def setup(client):

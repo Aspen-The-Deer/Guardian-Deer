@@ -114,7 +114,7 @@ class Punishments(commands.Cog):
 
         embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed2.add_field(name="You have been Kicked from:", value=str(server), inline=False)
-        embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
+        embed2.add_field(name="For the Reason:", value=reason, inline=False)
         embed2.add_field(name="You were kicked By:", value=str(mod), inline=False)
         embed2.set_footer(text="Type '>help' for help options!")
         if member == None or member == ctx.message.author:
@@ -149,7 +149,7 @@ class Punishments(commands.Cog):
 
             embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed2.add_field(name="You have been Kicked from:", value=str(server), inline=False)
-            embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
+            embed2.add_field(name="For the Reason:", value=reason, inline=False)
             embed2.add_field(name="You were kicked By:", value=str(mod), inline=False)
             embed2.set_footer(text="Type '>help' for help options!")
             await member.send(embed=embed2)
@@ -171,7 +171,6 @@ class Punishments(commands.Cog):
         try:
             await logger.send(embed=embed)
             await member.send(embed=embed2)
-            await member.send('L')
         except AttributeError:
             print("No logging channel found in "+server+", Ignoring Event.")
             await member.send(embed=embed2)

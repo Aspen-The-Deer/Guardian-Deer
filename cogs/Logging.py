@@ -79,7 +79,7 @@ class Logging(commands.Cog):
                 try:
                     await logger.send(embed=embed)
                 except AttributeError:
-                    print("No logging channel found in "+guild+", Ignoring Event.")
+                    print("No logging channel found in "+str(guild)+", Ignoring Event.")
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
@@ -101,7 +101,7 @@ class Logging(commands.Cog):
             try:
                 await logger.send(embed=embed)
             except AttributeError:
-                print("No logging channel found in "+guild+", Ignoring Event.")
+                print("No logging channel found in "+str(guild)+", Ignoring Event.")
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
@@ -121,7 +121,7 @@ class Logging(commands.Cog):
         try:
             await logger.send(embed=embed)
         except AttributeError:
-            print("No logging channel found in "+guild+", Ignoring Event.")
+            print("No logging channel found in "+str(guild)+", Ignoring Event.")
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):
@@ -141,7 +141,7 @@ class Logging(commands.Cog):
         try:
             await logger.send(embed=embed)
         except AttributeError:
-            print("No logging channel found in "+guild+", Ignoring Event.")
+            print("No logging channel found in "+str(guild)+", Ignoring Event.")
 
     @commands.command(aliases=["profile", "ui", "mi", "Profile"])
     async def user_info(self, ctx, target: discord.User=None):

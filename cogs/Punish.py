@@ -25,6 +25,16 @@ class Punishments(commands.Cog):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
         server = ctx.message.guild
         mod = ctx.message.author.mention
+        embed2= discord.Embed(
+            colour=(0x629632),
+            title="You have been Banned:"
+        )
+
+        embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        embed2.add_field(name="You have been banned from:", value=str(server), inline=False)
+        embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
+        embed2.add_field(name="You were Banned By:", value=str(mod), inline=False)
+        embed2.set_footer(text="Type '>help' for help options!")
         if member == None or member == ctx.message.author:
             embed= discord.Embed(
                 colour=(0x629632),
@@ -51,21 +61,6 @@ class Punishments(commands.Cog):
             embed.set_footer(text="Type '>help' for help options!")
 
             await ctx.channel.send(embed=embed)
-            try:
-                await logger.send(embed=embed)
-            except AttributeError:
-                print("No logging channel found in "+server+", Ignoring Event.")
-            embed2= discord.Embed(
-                colour=(0x629632),
-                title="You have been Banned:"
-            )
-
-            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed2.add_field(name="You have been banned from:", value=str(server), inline=False)
-            embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
-            embed2.add_field(name="You were Banned By:", value=str(mod), inline=False)
-            embed2.set_footer(text="Type '>help' for help options!")
-            await member.send(embed=embed2)
         elif reason == None:
             reason = "No Reason Given"
             await ctx.guild.ban(member, reason=reason)
@@ -81,20 +76,11 @@ class Punishments(commands.Cog):
             embed.set_footer(text="Type '>help' for help options!")
 
             await ctx.channel.send(embed=embed)
-            try:
-                await logger.send(embed=embed)
-            except AttributeError:
-                print("No logging channel found in "+server+", Ignoring Event.")
-            embed2= discord.Embed(
-                colour=(0x629632),
-                title="You have been Banned:"
-            )
-
-            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed2.add_field(name="You have been banned from:", value=str(server), inline=False)
-            embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
-            embed2.add_field(name="You were Banned By:", value=str(mod), inline=False)
-            embed2.set_footer(text="Type '>help' for help options!")
+        try:
+            await logger.send(embed=embed)
+            await member.send(embed=embed2)
+        except AttributeError:
+            print("No logging channel found in "+server+", Ignoring Event.")
             await member.send(embed=embed2)
 
 
@@ -121,6 +107,16 @@ class Punishments(commands.Cog):
         logger = discord.utils.get(ctx.guild.channels, name='logs')
         server = ctx.message.guild
         mod = ctx.message.author.mention
+        embed2= discord.Embed(
+            colour=(0x629632),
+            title="You have been Kicked:"
+        )
+
+        embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
+        embed2.add_field(name="You have been Kicked from:", value=str(server), inline=False)
+        embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
+        embed2.add_field(name="You were kicked By:", value=str(mod), inline=False)
+        embed2.set_footer(text="Type '>help' for help options!")
         if member == None or member == ctx.message.author:
             embed= discord.Embed(
                 colour=(0x629632),
@@ -132,13 +128,8 @@ class Punishments(commands.Cog):
             embed.add_field(name="This happened because:", value="You cannot kick yourself.\nNo user was specified to kick.", inline=False)
             embed.set_footer(text="Type '>help' for help options!")
             await ctx.channel.send(embed=embed)
-            try:
-                await logger.send(embed=embed)
-            except AttributeError:
-                print("No logging channel found in "+server+", Ignoring Event.")
-            return
         elif reason != None:
-            await ctx.guild.ban(member, reason=reason)
+            await ctx.guild.kick(member, reason=reason)
             embed= discord.Embed(
                 colour=(0x629632),
                 title="User Kicked:"
@@ -146,7 +137,7 @@ class Punishments(commands.Cog):
 
             embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
             embed.add_field(name="User:", value=str(member), inline=False)
-            embed.add_field(name="Reason:", value=str(reason), inline=False)
+            embed.add_field(name="Reason:", value=reason, inline=False)
             embed.add_field(name="Kicked By:", value=str(mod), inline=False)
             embed.set_footer(text="Type '>help' for help options!")
 
@@ -164,7 +155,7 @@ class Punishments(commands.Cog):
             await member.send(embed=embed2)
         elif reason == None:
             reason = "No Reason Given"
-            await ctx.guild.ban(member, reason=reason)
+            await ctx.guild.kick(member, reason=reason)
             embed= discord.Embed(
                 colour=(0x629632),
                 title="User Kicked:"
@@ -177,20 +168,11 @@ class Punishments(commands.Cog):
             embed.set_footer(text="Type '>help' for help options!")
 
             await ctx.channel.send(embed=embed)
-            try:
-                await logger.send(embed=embed)
-            except AttributeError:
-                print("No logging channel found in "+server+", Ignoring Event.")
-            embed2= discord.Embed(
-                colour=(0x629632),
-                title="You have been Kicked:"
-            )
-
-            embed2.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
-            embed2.add_field(name="You have been Kicked from:", value=str(server), inline=False)
-            embed2.add_field(name="For the Reason:", value=str(reason), inline=False)
-            embed2.add_field(name="You were kicked By:", value=str(mod), inline=False)
-            embed2.set_footer(text="Type '>help' for help options!")
+        try:
+            await logger.send(embed=embed)
+            await member.send(embed=embed2)
+        except AttributeError:
+            print("No logging channel found in "+server+", Ignoring Event.")
             await member.send(embed=embed2)
 
     @kick.error

@@ -171,6 +171,7 @@ class Punishments(commands.Cog):
         try:
             await logger.send(embed=embed)
             await member.send(embed=embed2)
+            await member.send('L')
         except AttributeError:
             print("No logging channel found in "+server+", Ignoring Event.")
             await member.send(embed=embed2)

@@ -29,10 +29,7 @@ class Timer(commands.Cog):
         embed.set_author(name="Guardian Deer", icon_url="https://cdn.discordapp.com/avatars/606855758612660327/98b13ab2d31342848754caa909a653da.png?size=1024")
         embed.add_field(name = ('Uptime'), value = (text))
         embed.set_footer(text="Type '>help' for help options!")
-        try:
-            await ctx.channel.send(embed=embed)
-        except discord.HTTPException:
-            await ctx.channel.send("Current uptime: " + text)
+        await ctx.channel.send(embed=embed)
 
 
 def setup(client):
